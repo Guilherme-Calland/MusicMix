@@ -6,16 +6,23 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { PerfilComponent } from './perfil.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule, 
+    FormsModule,
+    HttpClientModule, 
     RouterModule.forRoot([
+      {
+        path: 'perfil',
+        component: PerfilComponent
+      }
     ])
   ],
   bootstrap: [AppComponent]
