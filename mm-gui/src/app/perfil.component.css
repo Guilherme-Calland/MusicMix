@@ -1,3 +1,67 @@
-.teste{
-    font-size : 70px;
-  }
+.perfil{
+    font-size : 30px;
+    color: #ffffff;
+    margin-top: 5px;
+    /* margin-right: 20px;
+    margin-left:20px; */
+    font-weight: "font-bold";
+    text-align: center;
+    display:grid;
+    min-height:65vh;
+    height:100%;
+    /* grid-template-rows: repeat(3, 100px);
+    grid-template-columns: repeat(2,100px); */
+    grid-template-rows: repeat(3, 1fr); 
+    /* 1fr --> fills space */
+    grid-template-columns: repeat(3,1fr);
+    grid-gap:5px;
+    
+
+}
+
+/*.one ou perfil-time.one*/
+.block{
+    transition: all ease-in-out 500ms;
+    /* opacity: 0.5; */
+}
+
+.block:hover{
+    background-color: darkblue;
+    opacity: 1;
+}
+
+.short{
+    background-color: lightskyblue;
+    border-radius: 20px;
+    /* grid-row:  span 1;
+    grid-column: span 3; */
+    
+}
+
+.long{
+    background-color: lightskyblue;
+    border-radius: 20px;
+    grid-row: span 2;
+    /* grid-column: span 3; */
+    transition: all ease-in-out 500ms;
+}
+
+
+.foto{
+    background-image: url(//pixelartmaker.com/art/21c0f5af5a98aee.png) ;
+    background-size: cover;
+    background-position: center;
+    max-width: 200px;
+    border-radius: 20px;
+    background-color :white;   
+    transition: all ease-in-out 500ms;
+    opacity: 1;
+    /* grid-row: span 1;
+    grid-column: span 3;  */
+}
+
+.foto:hover{
+    background-color: lightgrey;
+    background-blend-mode: multiply;
+    border-radius: 20px;
+}
