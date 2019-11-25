@@ -34,7 +34,7 @@ mmserver.post('/musician', function (req: express.Request, res: express.Response
 
 mmserver.put('/musician', function (req: express.Request, res: express.Response) {
   var musician: Musician = <Musician> req.body;
-  musician = subscription.atualizar(musician);
+  musician = subscription.update(musician);
   if (musician) {
     res.send({"success": "O musician foi atualizado com sucesso"});
   } else {

@@ -17,7 +17,7 @@ export class SubscribeMusicians {
       return !this.musicians.find(a => a.email == email);
    }
 
-    atualizar(musician: Musician): Musician {
+    update(musician: Musician): Musician {
      var result: Musician = this.musicians.find(a => a.email == musician.email);
      if (result) result.copyFrom(musician);
      return result;
