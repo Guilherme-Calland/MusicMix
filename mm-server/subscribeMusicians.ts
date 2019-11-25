@@ -5,7 +5,7 @@ export class SubscribeMusicians {
 
     subscribe(musician: Musician): Musician {
      var result = null;
-     if (this.EmailNotSubscribed(musician.email)) {
+     if (this.UsernameNotSubscribed(musician.username)) {
        result = new Musician();
        result.copyFrom(musician);
        this.musicians.push(result);
@@ -13,12 +13,12 @@ export class SubscribeMusicians {
      return result;
    }
 
-    EmailNotSubscribed(email: string): boolean {
-      return !this.musicians.find(a => a.email == email);
+    UsernameNotSubscribed(username: string): boolean {
+      return !this.musicians.find(a => a.username == username);
    }
 
     update(musician: Musician): Musician {
-     var result: Musician = this.musicians.find(a => a.email == musician.email);
+     var result: Musician = this.musicians.find(a => a.username == musician.username);
      if (result) result.copyFrom(musician);
      return result;
    }

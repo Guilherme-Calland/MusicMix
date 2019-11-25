@@ -11,7 +11,7 @@ import { MusicianService } from './musician.service';
 
     musician: Musician = new Musician();
     musicians: Musician[] = [];
-    duplicatedemail: boolean = false;
+    duplicatedusername: boolean = false;
 
     constructor(private musicianService: MusicianService) {}
 
@@ -23,7 +23,7 @@ import { MusicianService } from './musician.service';
                     this.musicians.push(ar);
                     this.musician = new Musician();
                   } else {
-                    this.duplicatedemail = true;
+                    this.duplicatedusername = true;
                   } 
                 },
                 msg => { alert(msg.message); }
@@ -31,7 +31,7 @@ import { MusicianService } from './musician.service';
     } 
 
     onMove(): void {
-       this.duplicatedemail = false;
+       this.duplicatedusername = false;
     }
 
      ngOnInit(): void {

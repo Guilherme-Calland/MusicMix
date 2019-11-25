@@ -1,29 +1,39 @@
 <html (mousemove)="onMove()">
 
-  <table>
- <tr>
-    <td><label>Nome </label></td>
-    <td><input [(ngModel)]="musician.nome" ></td>
-    <td><button (click)="createMusician(aluno)">ADD</button></td>
- </tr>
- <tr>
-    <td><label>email </label></td>
-    <td><input [(ngModel)]="musician.email" ></td>
-    <td *ngIf="duplicatedemail">
-      ja existe um musico com esse EMAIL
-    </td>
- </tr>
- </table>
+<div class = "login-menu">
+    <h2 class = "title">
+        MusicMix
+    </h2>
+    
+    <div class = "usuario-e-senha">
+        Usuario:
+        <br>
+        <input [(ngModel)]="musician.username" >
+        <div *ngIf="duplicatedusername">
+        <br>
+        ja existe um musico com<br>esse nome de usuario
+        <br>
+        </div>
+        <br>
+        Senha:
+        <br>
+        <input [(ngModel)]="musician.password" >
+        <br>
+        <br>
+    </div>
+    <button class = "button1" (click)="createMusician(musician)">Cadastrar</button>
+    <button class = "button2" (click)="createMusician(musician)">Entrar</button>
+</div>
 
-  <table>
+<!-- <table>
  <tr *ngIf="musicians.length > 0">
     <th>Nome</th>
     <th>e-mail</th>
  </tr>
  <tr *ngFor="let a of musicians">
-    <td>{{a.nome}}</td>
+    <td>{{a.name}}</td>
     <td>{{a.email}}</td>
  </tr>
- </table>
+</table> -->
 
   </html>

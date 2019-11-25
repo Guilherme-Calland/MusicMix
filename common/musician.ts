@@ -1,9 +1,10 @@
 import {Events} from '../common/events';
 
 export class Musician {
+    username: string;
+    password: string;
     name: string;
     email: string; 
-    password: string;
     repertoire: string[];
     instruments: string[];
     events: Events[];
@@ -13,12 +14,13 @@ export class Musician {
     }
   
     clean(): void {
+      this.username = "";
+      this.password = "";
       this.name = "";
       this.email = "";
-      this.password= "";
-      this.repertoire;
-      this.instruments;
-      this.events;
+      this.repertoire= [];
+      this.instruments = [];
+      this.events = [];
     }
   
     clone(): Musician {
@@ -28,12 +30,13 @@ export class Musician {
     }
   
     copyFrom(from: Musician): void {
+      this.username = from.username;
+      this.password = from.password;
       this.name = from.name;
       this.email = from.email;
-      this.password= "";
-      this.repertoire;
-      this.instruments;
-      this.events;
+      this.repertoire = from.repertoire;
+      this.instruments = from.instruments;
+      this.events = from.events;
       //this.copyMetasFrom(from.ichwillsterben);
     }
   
