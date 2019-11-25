@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ta-gui": {
+    "mm-gui": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ta-gui",
+            "outputPath": "dist/mm-gui",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -63,18 +63,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ta-gui:build"
+            "browserTarget": "mm-gui:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ta-gui:build:production"
+              "browserTarget": "mm-gui:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ta-gui:build"
+            "browserTarget": "mm-gui:build"
           }
         },
         "test": {
@@ -111,15 +111,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "ta-gui:serve"
+            "devServerTarget": "mm-gui:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "ta-gui:serve:production"
+              "devServerTarget": "mm-gui:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "ta-gui"
+  "defaultProject": "mm-gui"
 }

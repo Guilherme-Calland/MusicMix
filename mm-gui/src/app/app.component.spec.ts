@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'ta-gui'`, () => {
+  it(`should have as title 'mm-gui'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('ta-gui');
+    expect(app.title).toEqual('mm-gui');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('ta-gui app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('mm-gui app is running!');
   });
 });
