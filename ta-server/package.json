@@ -1,12 +1,12 @@
 {
-    "name": "ta-server",
+    "name": "mm-server",
     "version": "0.0.2",
-    "description": "Servidor do teaching assistant",
+    "description": "Servidor do Music Mix",
     "main": "mm-server.js",
     "scripts": {
       "test": "echo \"Error: no test specified\" && exit 1",
       "tsc": "./node_modules/typescript/bin/tsc",
-      "start": "npm run tsc && node compiledCode/ta-server/ta-server.js"
+      "start": "npm run tsc && node compiledCode/mm-server/mm-server.js"
     },
     "author": "Guilherme, Victória, Milet, Evaldo",
     "license": "MIT",
