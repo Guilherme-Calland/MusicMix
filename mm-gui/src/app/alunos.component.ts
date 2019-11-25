@@ -15,7 +15,7 @@ import { MusicianService } from './musician.service';
 
     constructor(private musicianService: MusicianService) {}
 
-     criarMusician(a: Musician): void {
+     createMusician(a: Musician): void {
        this.musicianService.create(a)
               .subscribe(
                 ar => {
