@@ -7,11 +7,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PerfilComponent } from './perfil.component';
+import { MusicianService } from './musician.service';
+import { MusiciansComponent } from './musicians.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PerfilComponent
+    PerfilComponent,
+    MusiciansComponent
   ],
   imports: [
     BrowserModule,
@@ -22,9 +25,14 @@ import { PerfilComponent } from './perfil.component';
       {
         path: 'perfil',
         component: PerfilComponent
+      },
+      {
+        path: 'musicians',
+        component: MusiciansComponent
       }
     ])
   ],
+  providers: [MusicianService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
