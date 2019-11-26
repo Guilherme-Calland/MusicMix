@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Musician } from '../../../common/musician';
 import { MusicianService } from './musician.service';
+import { exists } from 'fs';
 
   @Component({
    selector: 'app-root',
@@ -12,7 +13,8 @@ import { MusicianService } from './musician.service';
     musician: Musician = new Musician();
     musicians: Musician[] = [];
     duplicatedusername: boolean = false;
-    wrongpassword: boolean = false;
+    invalidlogin: boolean = false;
+
 
 
     constructor(private musicianService: MusicianService) {}
@@ -32,17 +34,43 @@ import { MusicianService } from './musician.service';
               );
     } 
 
-    enterProfile(a: Musician): void{
-      var newUrl = '/perfil';
-      if(!this.wrongpassword){
-        window.location.replace(newUrl);
+    enterProfile(musician: Musician): void{
+    
+      
+      this.invalidlogin = this.usernameNotSubscribed(musician.username);
+
+      if(this.invalidlogin) return;
+
+      var mus = this.getMusicianFromMusicians(musician.username);
+
+      if(this.validPassword(mus.password)){
+        window.location.replace('/perfil');
       }
     }
 
+    usernameNotSubscribed(username: string): boolean {
+      return !this.musicians.find(a => a.username == username);
+    }
+
+    validPassword(password: string): boolean {
+      if(this.musician.password == password) return true;
+      else return false;
+      
+    }
+
+    getMusicianFromMusicians(username: string): Musician {
+      var i;
+      for(i = 0; i < this.musicians.length; i++){
+        if (this.musicians[i].username == username){
+          return this.musician[i];
+        } 
+      }
+      return null;
+    }
 
     onMove(): void {
        this.duplicatedusername = false;
-       this.wrongpassword = false;
+       this.invalidlogin = false;
     }
 
      ngOnInit(): void {

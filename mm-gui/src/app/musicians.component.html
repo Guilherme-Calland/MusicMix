@@ -14,14 +14,14 @@
         ja existe um musico com<br>esse nome de usuario
         <br>
         </div>
-        <div *ngIf="wrongpassword">
-        nome do usuario ou <br> senha estao errados
-        <br>
-        </div>
         <br>
         Senha:
         <br>
         <input [(ngModel)]="musician.password" >
+        <div *ngIf="invalidlogin">
+        nome do usuario ou <br> senha estao errados
+        <br>
+        </div>
         <br>
         <br>
     </div>
