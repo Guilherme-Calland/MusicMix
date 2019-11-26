@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Musician } from '../../../common/musician';
 import { MusicianService } from './musician.service';
-import { exists } from 'fs';
 
   @Component({
    selector: 'app-root',
@@ -43,13 +42,16 @@ import { exists } from 'fs';
 
       var mus = this.getMusicianFromMusicians(musician.username);
 
-      if(this.validPassword(mus.password)){
+      if(/*this.validPassword(mus.password)*/true){
         window.location.replace('/perfil');
       }
     }
 
     usernameNotSubscribed(username: string): boolean {
-      return !this.musicians.find(a => a.username == username);
+      if(!this.musicians.find(a => a.username == username)){
+        return true;
+      }
+      else return false;
     }
 
     validPassword(password: string): boolean {
