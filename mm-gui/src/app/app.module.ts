@@ -33,6 +33,6 @@ import { MusiciansComponent } from './musicians.component';
     ])
   ],
   providers: [MusicianService],
-  bootstrap: [MusiciansComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

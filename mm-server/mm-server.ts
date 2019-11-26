@@ -1,3 +1,7 @@
+// se der problema no servidor denovo, lembre de 
+// excluir os node modules e o compiled code antes 
+// de testar novamente
+
 import express = require('express');
 import bodyParser = require("body-parser");
 
@@ -26,9 +30,9 @@ mmserver.post('/musician', function (req: express.Request, res: express.Response
   var musician: Musician = <Musician> req.body; //verificar se é mesmo Musician!
   musician = subscription.subscribe(musician);
   if (musician) {
-    res.send({"success": "O musician foi cadastrado com sucesso"});
+    res.send({"success": "O musico foi cadastrado com sucesso"});
   } else {
-    res.send({"failure": "O musician não pode ser cadastrado"});
+    res.send({"failure": "O musico não pode ser cadastrado"});
   }
 })
 
@@ -36,9 +40,9 @@ mmserver.put('/musician', function (req: express.Request, res: express.Response)
   var musician: Musician = <Musician> req.body;
   musician = subscription.update(musician);
   if (musician) {
-    res.send({"success": "O musician foi atualizado com sucesso"});
+    res.send({"success": "O musico foi atualizado com sucesso"});
   } else {
-    res.send({"failure": "O musician não pode ser atualizado"});
+    res.send({"failure": "O musico não pode ser atualizado"});
   }
 })
 

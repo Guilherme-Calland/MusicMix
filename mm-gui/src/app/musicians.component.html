@@ -14,6 +14,10 @@
         ja existe um musico com<br>esse nome de usuario
         <br>
         </div>
+        <div *ngIf="wrongpassword">
+        nome do usuario ou <br> senha estao errados
+        <br>
+        </div>
         <br>
         Senha:
         <br>
@@ -22,7 +26,7 @@
         <br>
     </div>
     <button class = "button1" (click)="createMusician(musician)">Cadastrar</button>
-    <button class = "button2" (click)="createMusician(musician)">Entrar</button>
+    <button class = "button2" (click)="enterProfile(musician)">Entrar</button>
 </div>
 
 <!-- <table>

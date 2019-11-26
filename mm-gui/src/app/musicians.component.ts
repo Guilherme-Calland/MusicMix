@@ -12,6 +12,8 @@ import { MusicianService } from './musician.service';
     musician: Musician = new Musician();
     musicians: Musician[] = [];
     duplicatedusername: boolean = false;
+    wrongpassword: boolean = false;
+
 
     constructor(private musicianService: MusicianService) {}
 
@@ -30,8 +32,17 @@ import { MusicianService } from './musician.service';
               );
     } 
 
+    enterProfile(a: Musician): void{
+      var newUrl = '/perfil';
+      if(!this.wrongpassword){
+        window.location.replace(newUrl);
+      }
+    }
+
+
     onMove(): void {
        this.duplicatedusername = false;
+       this.wrongpassword = false;
     }
 
      ngOnInit(): void {
@@ -41,5 +52,7 @@ import { MusicianService } from './musician.service';
                msg => { alert(msg.message); }
               );
      }
+
+
 
   }
