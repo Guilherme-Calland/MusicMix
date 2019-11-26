@@ -42,8 +42,10 @@ import { MusicianService } from './musician.service';
 
       var mus = this.getMusicianFromMusicians(musician.username);
 
-      if(/*this.validPassword(mus.password)*/true){
+      if(this.validPassword(mus.password)){
         window.location.replace('/perfil');
+      } else {
+        this.invalidlogin = true;
       }
     }
 
@@ -61,12 +63,13 @@ import { MusicianService } from './musician.service';
     }
 
     getMusicianFromMusicians(username: string): Musician {
-      var i;
-      for(i = 0; i < this.musicians.length; i++){
-        if (this.musicians[i].username == username){
-          return this.musician[i];
-        } 
-      }
+      // var i;
+      // for(i = 0; i < this.musicians.length; i++){
+      //   if (this.musicians[i].username == username){
+      //     return this.musician[i];
+      //   } 
+      // }
+      return this.musicians.find(a => a.username ==username);
       return null;
     }
 
