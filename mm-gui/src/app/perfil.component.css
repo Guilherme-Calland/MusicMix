@@ -7,7 +7,7 @@
     font-weight: "font-bold";
     text-align: center;
     display:grid;
-    min-height:65vh;
+    min-height:75vh;
     height:100%;
     /* grid-template-rows: repeat(3, 100px);
     grid-template-columns: repeat(2,100px); */
