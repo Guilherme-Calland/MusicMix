@@ -42,6 +42,7 @@ mmserver.post('/musician', function (req: express.Request, res: express.Response
     res.send({"failure": "O musico não pode ser cadastrado"});
   }
   
+  
 })
 
 mmserver.put('/musician', function (req: express.Request, res: express.Response) {
