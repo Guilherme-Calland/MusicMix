@@ -29,7 +29,7 @@ mmserver.get('/musicians', function (req: express.Request, res: express.Response
 mmserver.post('/musician', function (req: express.Request, res: express.Response) {
   // var musician: Musician = <Musician> req.body; //pode mudar isso aqui para melhor se adequar
   var response = req.body;
-
+  
   if(response[0]=="create"){
     response = subscription.subscribeThis(response[1]);
   } else if (response[0]=="check"){

@@ -22,6 +22,7 @@ import { MusicianService } from './musician.service';
       if (ar) {
         this.musicians.push(ar);
         this.musician = new Musician();
+        // window.location.replace('/perfil');
       } else {
         this.duplicatedusername = true;
       } 
