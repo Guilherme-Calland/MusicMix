@@ -6,15 +6,15 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PerfilComponent } from './perfil.component';
+import { ProfileComponent } from './profile.component';
 import { MusicianService } from './musician.service';
-import { MusiciansComponent } from './musicians.component';
+import { LoginComponent } from './login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PerfilComponent,
-    MusiciansComponent
+    ProfileComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -23,12 +23,12 @@ import { MusiciansComponent } from './musicians.component';
     HttpClientModule, 
     RouterModule.forRoot([
       {
-        path: 'perfil',
-        component: PerfilComponent
+        path: 'profile',
+        component: ProfileComponent
       },
       {
-        path: 'musicians',
-        component: MusiciansComponent
+        path: 'login',
+        component: LoginComponent
       }
     ])
   ],

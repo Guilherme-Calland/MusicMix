@@ -1,11 +1,14 @@
 import { Musician } from '../common/musician';
 
 export class SubscribeMusicians {
+  //um array de todos os musicos cadastrados
   musicians: Musician[] = [];
+  //o musico que estamos entrando na sua conta
+  musician: Musician;
 
   subscribeThis(musician: Musician): Musician {
     var result = null;
-    if (this.UsernameNotSubscribed(musician.username)) {
+    if (this.usernameNotSubscribed(musician.username)) {
       result = new Musician();
       result.copyFrom(musician);
       this.musicians.push(result);
@@ -20,10 +23,11 @@ export class SubscribeMusicians {
         subbedMusician = null;
       }
     }
+    this.musician = subbedMusician;
     return subbedMusician;
   }
 
-  UsernameNotSubscribed(username: string): boolean {
+  usernameNotSubscribed(username: string): boolean {
     return !this.musicians.find(a => a.username == username);
   }
 
@@ -43,6 +47,10 @@ export class SubscribeMusicians {
 
   getMusicians(): Musician[] {
     return this.musicians;
+  }
+
+  getMusician() : Musician {
+    return this.musician;
   }
 }
 

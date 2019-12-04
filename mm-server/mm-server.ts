@@ -27,22 +27,26 @@ mmserver.get('/musicians', function (req: express.Request, res: express.Response
 })
 
 mmserver.post('/musician', function (req: express.Request, res: express.Response) {
-  // var musician: Musician = <Musician> req.body; //pode mudar isso aqui para melhor se adequar
   var response = req.body;
   
-  if(response[0]=="create"){
-    response = subscription.subscribeThis(response[1]);
-  } else if (response[0]=="check"){
-    response = subscription.returnSubbedUser(response[1]);
+  if( (response[0] == "create") || (response[0] == "check") ){
+    if(response[0]=="create"){
+      response = subscription.subscribeThis(response[1]);
+    } else if (response[0]=="check"){
+      response = subscription.returnSubbedUser(response[1]);
+    }
+
+    if (response) {
+      res.send({"success": "O musico foi cadastrado com sucesso"});
+    } else {
+      res.send({"failure": "O musico não pode ser cadastrado"});
+    }
+  } else if (response[0] == "get"){
+    res.send(JSON.stringify(subscription.getMusician()));
   }
 
-  if (response) {
-    res.send({"success": "O musico foi cadastrado com sucesso"});
-  } else {
-    res.send({"failure": "O musico não pode ser cadastrado"});
-  }
   
-  
+  //
 })
 
 mmserver.put('/musician', function (req: express.Request, res: express.Response) {

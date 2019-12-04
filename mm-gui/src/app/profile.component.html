@@ -1,0 +1,24 @@
+<!-- parta em 9 colunas depois, assim, as fotos e videos nao ficam tao esticados -->
+<div class = "profile">
+    <!-- <img src = "http://pixelartmaker.com/art/21c0f5af5a98aee.png" width = "100px"> -->
+    <div class = "profile-item short block">
+        <input [(ngModel)]="musician.name" (change)="updateMusician(musician)">
+        
+    </div>
+    <div class = "profile-item short block">two</div>
+    <div class = "profile-item short block">three</div>
+    <div class = "profile-item short block">four</div>
+    <div class = "profile-item short block">five</div>
+    <div class = "profile-item short block">six</div>
+    <div class = "profile-item short block">seven</div>
+    <div class = "profile-item short block">eight</div>
+    <div class = "profile-item short block">nine</div>
+
+<!-- 
+    <div *ngFor="let m of musicians">
+        {{m.username}}
+        <input [(ngModel)]="m.name" (change)="updateMusician(a)">
+        <input [(ngModel)]="m.email" (change)="updateMusician(a)">
+    </div> -->
+</div>
+  

@@ -27,25 +27,33 @@ export class MusicianService {
     this.requestBuffer[0] = "check";
     this.requestBuffer[1] = musician;
     return this.http.post<any>(this.taURL + "/musician", this.requestBuffer, {headers: this.headers})
-             .pipe( 
-                retry(2),
-                map( res => {if (res.success) {return musician;} else {return null;}} )
-              ); 
+      .pipe( 
+        retry(2),
+        map( res => {if (res.success) {return musician;} else {return null;}} )
+      ); 
   }
-
 
   update(musician: Musician): Observable<Musician> {
     return this.http.put<any>(this.taURL + "/musician",JSON.stringify(musician), {headers: this.headers})          .pipe( 
-                retry(2),
-                map( res => {if (res.success) {return musician;} else {return null;}} )
-              ); 
+      retry(2),
+      map( res => {if (res.success) {return musician;} else {return null;}} )
+      ); 
   }
 
   getMusicians(): Observable<Musician[]> {
     return this.http.get<Musician[]>(this.taURL + "/musicians")
-              .pipe(
-                 retry(2)
-               );
+      .pipe(
+        retry(2)
+      );
+  }
+
+  getLoggedMusician(): Observable<Musician> {
+    this.requestBuffer[0] = "get";
+    this.requestBuffer[1] = null; 
+    return this.http.post<any>(this.taURL + "/musician", this.requestBuffer, {headers: this.headers})
+      .pipe( 
+        retry(2)
+      ); 
   }
 
 }

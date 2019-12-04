@@ -1,4 +1,4 @@
-.perfil{
+.profile{
     font-size : 30px;
     color: #ffffff;
     margin-top: 5px;
@@ -19,7 +19,7 @@
 
 }
 
-/*.one ou perfil-time.one*/
+/*.one ou profile-time.one*/
 .block{
     transition: all ease-in-out 500ms;
     /* opacity: 0.5; */
