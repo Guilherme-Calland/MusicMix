@@ -60,6 +60,6 @@ mmserver.put('/musician', function (req: express.Request, res: express.Response)
 })
 
 mmserver.listen(3000, function () {
-  console.log('Example app listening on port 3000!')
+  console.log('Musicians Server listening on port 3000!')
 })
 

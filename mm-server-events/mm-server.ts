@@ -56,7 +56,7 @@ mmserver.put('/event', function (req: express.Request, res: express.Response) {
   }
 })
 
-mmserver.listen(3000, function () { //warning
-  console.log('Example app listening on port 3000!')
+mmserver.listen(3001, function () { //warning
+  console.log('Events Server listening on port 3001!')
 })
 

@@ -40,6 +40,6 @@ import { EventService } from './event.service';
     ])
   ],
   providers: [MusicianService, EventService],
-  bootstrap: [EventsComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
