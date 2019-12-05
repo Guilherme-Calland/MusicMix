@@ -2,36 +2,38 @@
     font-size : 30px;
     color: #ffffff;
     margin-top: 5px;
-    /* margin-right: 20px;
-    margin-left:20px; */
     font-weight: "font-bold";
-    text-align: center;
     display:grid;
     min-height:75vh;
     height:100%;
+    grid-template-rows: repeat(3); 
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap:5px;
     /* grid-template-rows: repeat(3, 100px);
     grid-template-columns: repeat(2,100px); */
-    grid-template-rows: repeat(3, 1fr); 
     /* 1fr --> fills space */
-    grid-template-columns: repeat(3,1fr);
-    grid-gap:5px;
-    
+}
 
+.info{
+    font-size:20px;
 }
 
 /*.one ou profile-time.one*/
 .block{
+    padding-top: 5px;
+    padding-left: 10px;
     transition: all ease-in-out 500ms;
+    height: 30vh
     /* opacity: 0.5; */
 }
 
 .block:hover{
-    background-color: darkblue;
+    background-color: blue;
     opacity: 1;
 }
 
 .short{
-    background-color: lightskyblue;
+    background-color: darkred;
     border-radius: 20px;
     /* grid-row:  span 1;
     grid-column: span 3; */
@@ -39,13 +41,54 @@
 }
 
 .long{
-    background-color: lightskyblue;
+    background-color: darkred;
     border-radius: 20px;
     grid-row: span 2;
-    /* grid-column: span 3; */
+    /* grid-column: span 2; */
     transition: all ease-in-out 500ms;
 }
 
+.one{
+    /* padding-top: 0px;
+    padding-left: 0px; */
+    text-align: center;
+}
+
+.two{
+
+}
+
+.three{
+
+}    
+
+.four{
+    /* height: fit-content; */
+    height : fit-content;
+    min-height: 61.5vh;
+}
+
+.five{
+    
+}
+
+
+.six{
+    
+    
+}
+
+.seven{
+    
+}
+
+.eight{
+    
+}
+
+.nine{
+    
+}
 
 .foto{
     background-image: url(//pixelartmaker.com/art/21c0f5af5a98aee.png) ;

@@ -9,7 +9,7 @@
 nav a {
   padding: 6px 12px;
   text-decoration: none;
-  background-color: #3399ff;
+  background-color: darkred;
   color: #ffffff;
   border-radius: 10px;
   margin: 5px;
@@ -19,7 +19,7 @@ nav a {
 }
 nav a:hover {
   color: #e6e6e6;
-  background-color:pink;
+  background-color:blue;
 }
 
 .links{
@@ -28,7 +28,7 @@ nav a:hover {
 }
 
 .top-bar{
-  background-color: lightskyblue;
+  background-color:  rgb(53, 0, 0);
   border-radius: 20px;
   /* padding: 0px 0px; */
   /* margin-right: 20px;

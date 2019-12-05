@@ -1,24 +1,113 @@
 <!-- parta em 9 colunas depois, assim, as fotos e videos nao ficam tao esticados -->
+
 <div class = "profile">
     <!-- <img src = "http://pixelartmaker.com/art/21c0f5af5a98aee.png" width = "100px"> -->
-    <div class = "profile-item short block">
-        <input [(ngModel)]="musician.name" (change)="updateMusician(musician)">
-        
+    <div class = "profile-item short block one">
+        <div *ngIf= "isAccountOwner && !editProfileMode">
+            <button class = "button"  (click) = "editProfileMode = true">edit profile</button>
+        </div>
+        <div *ngIf= "editProfileMode">
+            <button class = "button"  (click) = "editProfileMode = false; updateMusician(musician)">accept changes</button>
+        </div>
+        <div *ngIf = "!editProfileMode"> 
+            <br>
+            {{ musician.name }}
+            <br>
+        </div>
+        <div *ngIf="editProfileMode">
+            <br>
+            name:<input [(ngModel)] = "musician.name">
+        </div>
     </div>
-    <div class = "profile-item short block">two</div>
-    <div class = "profile-item short block">three</div>
-    <div class = "profile-item short block">four</div>
-    <div class = "profile-item short block">five</div>
-    <div class = "profile-item short block">six</div>
-    <div class = "profile-item short block">seven</div>
-    <div class = "profile-item short block">eight</div>
-    <div class = "profile-item short block">nine</div>
 
-<!-- 
-    <div *ngFor="let m of musicians">
-        {{m.username}}
-        <input [(ngModel)]="m.name" (change)="updateMusician(a)">
-        <input [(ngModel)]="m.email" (change)="updateMusician(a)">
-    </div> -->
+    
+    <div class = "profile-item short block two">
+        <div *ngIf = "editProfileMode">
+            <button class = "button" (click) = "createEvent()">create event</button>
+            <button class = "button" (click) = "getExistingEvent()">submit existing event</button>
+        </div>
+    </div>
+    <div class = "profile-item short block three">three</div>
+    <div class = "profile-item long block four">
+        <table class = "info" *ngIf = "!editProfileMode">
+            <tr>
+                <td>email:</td><td>bands:</td>
+            </tr>
+            <tr>
+                <td>{{musician.email}}</td>
+                    <table>
+                        <tr *ngFor="let b of musician.bands">{{ b.name }}</tr>
+                    </table>
+            </tr>
+            
+            <tr>
+                <td>instruments:</td><td>repertoire:</td>
+            </tr>
+            <tr>
+                <td>
+                    <table>
+                        <tr *ngFor = "let i of musician.instruments">
+                            {{ i.name }}
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table>
+                        <tr *ngFor = "let r of musician.repertoire">
+                            {{ r.name }}
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+        <table class = "info" *ngIf = "editProfileMode">
+            <tr>
+                <td>email:</td><td>bands:</td>
+            </tr>
+            <tr>
+                <td><input [(ngModel)] = "musician.email"></td>
+                <table>
+                    <tr *ngFor = "let b of musician.bands">
+                        <input [(ngModel)] = "b.name">
+                    </tr>
+                </table>
+            </tr>
+            <tr>
+                <td></td>
+                <td> <button class = "button" (click) = "newBand()">add</button></td>
+            </tr>
+            <tr>
+                <td>instruments:</td><td>repertoire:</td>
+            </tr>
+            <tr>
+                <td>
+                    <table>
+                        <tr *ngFor = "let i of musician.instruments">
+                            <input [(ngModel)] = "i.name">
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table>
+                        <tr *ngFor = "let r of musician.repertoire">
+                            <input [(ngModel)] = "r.name">
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+            </tr>
+            <tr>
+                <td> <button class = "button" (click) = "newInstrument()">add</button></td>
+                <td> <button class = "button" (click) = "newSong()">add</button></td>
+            </tr>
+        </table> 
+
+    </div>
+    <div class = "profile-item short block five">five</div>
+    <div class = "profile-item short block six">six</div>
+    <div class = "profile-item short block eight">seven</div>
+    <div class = "profile-item short block nine">eight</div>
 </div>
   

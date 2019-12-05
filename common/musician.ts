@@ -1,13 +1,17 @@
-import {Events} from '../common/events';
+import {Event} from './event';
+import {Band} from './band';
+import {Instrument} from './instrument';
+import {Song} from './song';
 
 export class Musician {
   username: string;
   password: string;
   name: string;
-  email: string; 
-  repertoire: string[];
-  instruments: string[];
-  events: Events[];
+  email: string;
+  bands: Band[]; 
+  instruments: Instrument[];
+  repertoire: Song[];
+  events: Event[];
 
   constructor() {
     this.clean();
@@ -18,8 +22,9 @@ export class Musician {
     this.password = "";
     this.name = "";
     this.email = "";
-    this.repertoire= [];
     this.instruments = [];
+    this.bands = [];
+    this.repertoire = [];
     this.events = [];
   }
 
@@ -34,8 +39,9 @@ export class Musician {
     this.password = from.password;
     this.name = from.name;
     this.email = from.email;
-    this.repertoire = from.repertoire;
     this.instruments = from.instruments;
+    this.bands = from.bands;
+    this.repertoire = from.repertoire;
     this.events = from.events;
   }
 }
