@@ -49,6 +49,10 @@ export class ProfileComponent implements OnInit{
     this.musician.repertoire.push(song);
   }
 
+  createEvent(e:Event): void{
+
+  }
+
   ngOnInit(): void {
 
   this.musicianService.getMusicians()
