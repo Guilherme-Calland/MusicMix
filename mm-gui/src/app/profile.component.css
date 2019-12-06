@@ -108,3 +108,7 @@
     background-blend-mode: multiply;
     border-radius: 20px;
 }
+
+.events{
+    text-align: center;
+}

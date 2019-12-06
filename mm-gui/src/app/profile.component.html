@@ -53,6 +53,14 @@
                 </table>
             </div>
         </div>
+        <div *ngIf = "!editProfileMode">
+            Events:
+            <div class = "events">
+                {{ musician.events[0].name }}
+                <br>
+                {{ musician.events[0].date }}
+            </div>
+        </div>
     </div>
     <div class = "profile-item short block three">three</div>
     <div class = "profile-item long block four">
@@ -132,9 +140,23 @@
         </table> 
 
     </div>
-    <div class = "profile-item short block five">five</div>
+    <div class = "profile-item short block five">
+        <div class = "events">
+            <br>
+            {{ musician.events[1].name }}
+            <br>
+            {{ musician.events[1].date }}
+        </div>
+    </div>
     <div class = "profile-item short block six">six</div>
-    <div class = "profile-item short block eight">seven</div>
+    <div class = "profile-item short block eight">
+        <div class = "events">
+            <br>
+            {{ musician.events[2].name }}
+            <br>
+            {{ musician.events[2].date }}
+        </div>
+    </div>
     <div class = "profile-item short block nine">eight</div>
 </div>
   

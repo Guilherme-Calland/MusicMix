@@ -27,7 +27,7 @@ export class ProfileComponent implements OnInit{
 
   constructor(private musicianService: MusicianService) {}
 
-  eventsComponent : EventsComponent = new EventsComponent(new EventService(null));
+  eventsComponent : EventsComponent ;
 
   updateMusician(musician: Musician): void {
     this.musicianService.update(musician).subscribe(
