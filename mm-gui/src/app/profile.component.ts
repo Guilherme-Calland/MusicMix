@@ -20,7 +20,7 @@ export class ProfileComponent implements OnInit{
   constructor(private musicianService: MusicianService, private eventService: EventService) {}
 
   //////////////////////////
-  // VERDAMNTEN MUSICIANS
+  //Musicians
   ///////////////////////////
 
   musicians: Musician[];
@@ -37,11 +37,7 @@ export class ProfileComponent implements OnInit{
     );
   }
 
-  //insere uma nova banda no musico
-  newBand(): void {
-    var band = new Band("");
-    this.musician.bands.push(band);
-  }
+  
 
   //insere um novo intrumento em musico
   newInstrument(): void{
@@ -56,7 +52,7 @@ export class ProfileComponent implements OnInit{
   }
 
   /////////////////////
-  //VERDAMNTE EVENTS
+  //Events
   //////////////////////
   
   events: Event[] = [];
@@ -71,15 +67,36 @@ export class ProfileComponent implements OnInit{
 
   createEvent(e: Event): void {
     this.eventService.create(e).subscribe(
-    ar => {
-    if (ar) {
-        //this.enterProfile(m);
-    } else {
-        this.duplicatedeventname = true;
-    } 
-    },
-    msg => { alert(msg.message); }
-        );
+      ar => {
+        if (ar) {
+        } else {
+            this.duplicatedeventname = true;
+        } 
+      },
+      msg => { alert(msg.message); });
+  }
+
+  ////////////
+  ///Bands
+  ////////////
+
+  //insere uma nova banda no musico
+  newBand(): void {
+    var band = new Band();
+    this.musician.bands.push(band);
+  }
+
+  duplicatedbandname:boolean=false;
+
+  createBand(b: Band): void{
+    this.bandService.create(b).subscribe(
+      ar => {
+        if (ar) {
+        } else {
+            this.duplicatedbandname = true;
+        } 
+      },
+      msg => { alert(msg.message); });
   }
 
   ngOnInit(): void {
