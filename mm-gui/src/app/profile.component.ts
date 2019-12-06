@@ -4,9 +4,12 @@ import { MusicianService } from './musician.service';
 import { LoginComponent } from './login.component';
 import { Musician } from '../../../common/musician';
 import { Band } from '../../../common/band';
+import { Event } from '../../../common/event';
 import { Instrument } from '../../../common/instrument';
 import { Song } from '../../../common/song';
 import { stringify } from 'querystring';
+import { EventsComponent } from './events.component';
+import { EventService } from './event.service';
 
 @Component({
   selector: 'profile',
@@ -17,12 +20,13 @@ export class ProfileComponent implements OnInit{
 
   musicians: Musician[];
   musician: Musician;
-
-  //se for true faz aparecer a opção "editar perfil"
+  event: Event;
+  //ainda nao serve pra nada
   isAccountOwner : boolean = true;
-  //aciona o modo para o dono da conta editar seu perfil
-  editProfileMode : boolean = false;
+
   constructor(private musicianService: MusicianService) {}
+
+  eventsComponent : EventsComponent = new EventsComponent(new EventService(null));
 
   updateMusician(musician: Musician): void {
     this.musicianService.update(musician).subscribe(
@@ -49,8 +53,8 @@ export class ProfileComponent implements OnInit{
     this.musician.repertoire.push(song);
   }
 
-  createEvent(e:Event): void{
-
+  createEvent(e: Event): void{
+    this.eventsComponent.createEvent(e);
   }
 
   ngOnInit(): void {

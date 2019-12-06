@@ -15,7 +15,7 @@ export class EventsComponent {
 
     constructor(private eventService: EventService) {}
 
-    createEvent(e: Event): void {
+    public createEvent(e: Event): void {
         this.eventService.create(e).subscribe(
         ar => {
         if (ar) {

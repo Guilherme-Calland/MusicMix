@@ -4,7 +4,7 @@
     <!-- <img src = "http://pixelartmaker.com/art/21c0f5af5a98aee.png" width = "100px"> -->
     <div class = "profile-item short block one">
         <div *ngIf= "isAccountOwner && !editProfileMode">
-            <button class = "button"  (click) = "editProfileMode = true">edit profile</button>
+            <button class = "button"  (click) = "editProfileMode = true">edit profile</button> 
         </div>
         <div *ngIf= "editProfileMode">
             <button class = "button"  (click) = "editProfileMode = false; updateMusician(musician)">accept changes</button>
@@ -23,8 +23,37 @@
     
     <div class = "profile-item short block two">
         <div *ngIf = "editProfileMode">
-            <button class = "button" (click) = "createEvent()">create event</button>
-            <button class = "button" (click) = "getExistingEvent()">submit existing event</button>
+            <div *ngIf = "!creatingEvent">
+                <button class = "button" (click) = "creatingEvent = true">create event</button>
+                <button class = "button" (click) = "getExistingEvent()">submit existing event</button>
+            </div>
+            <div *ngIf = "creatingEvent">
+                <table>
+                        <tr>
+                            <td>
+                                event name:
+                            </td>
+                            <td>
+                                <input [(ngModel)] = event.name >
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                event date:
+                            </td>
+                            <td>
+                                <input [(ngModel)] = event.date >
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            </td>
+                            <td>
+                                <button class = "button" (click) = "createEvent(event);creatingEvent = false">create</button>
+                            </td>
+                        </tr>
+                </table>
+            </div>
         </div>
     </div>
     <div class = "profile-item short block three">three</div>
