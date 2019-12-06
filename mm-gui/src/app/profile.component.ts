@@ -8,7 +8,6 @@ import { Event } from '../../../common/event';
 import { Instrument } from '../../../common/instrument';
 import { Song } from '../../../common/song';
 import { stringify } from 'querystring';
-import { EventsComponent } from './events.component';
 import { EventService } from './event.service';
 
 @Component({
@@ -17,15 +16,19 @@ import { EventService } from './event.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit{
+  
+  constructor(private musicianService: MusicianService, private eventService: EventService) {}
+
+  //////////////////////////
+  // VERDAMNTEN MUSICIANS
+  ///////////////////////////
 
   musicians: Musician[];
   musician: Musician;
   //array temporaria que armazena o 1 elemento elemento: o evento atual sendo criado.
-  events: Event[] = [];
+ 
   //ainda nao serve pra nada
   isAccountOwner : boolean = true;
-
-  constructor(private musicianService: MusicianService) {}
 
   updateMusician(musician: Musician): void {
     this.musicianService.update(musician).subscribe(
@@ -52,6 +55,13 @@ export class ProfileComponent implements OnInit{
     this.musician.repertoire.push(song);
   }
 
+  /////////////////////
+  //VERDAMNTE EVENTS
+  //////////////////////
+  
+  events: Event[] = [];
+  duplicatedeventname:boolean=false;
+
   newEvent(): void{
     var event = new Event();
     this.musician.events.push(event);
@@ -59,7 +69,17 @@ export class ProfileComponent implements OnInit{
     this.events.push(event);
   }
 
-  createEvent(e: Event): void{
+  createEvent(e: Event): void {
+    this.eventService.create(e).subscribe(
+    ar => {
+    if (ar) {
+        //this.enterProfile(m);
+    } else {
+        this.duplicatedeventname = true;
+    } 
+    },
+    msg => { alert(msg.message); }
+        );
   }
 
   ngOnInit(): void {

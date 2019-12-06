@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 import { ProfileComponent } from './profile.component';
 import { MusicianService } from './musician.service';
 import { LoginComponent } from './login.component';
-import { EventsComponent } from './events.component';
 import { EventService } from './event.service';
 
 @NgModule({
@@ -17,7 +16,6 @@ import { EventService } from './event.service';
     AppComponent,
     ProfileComponent,
     LoginComponent,
-    EventsComponent
   ],
   imports: [
     BrowserModule,
@@ -32,10 +30,6 @@ import { EventService } from './event.service';
       {
         path: 'login',
         component: LoginComponent
-      },
-      {
-        path:'events',
-        component: EventsComponent
       }
     ])
   ],
