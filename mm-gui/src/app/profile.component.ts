@@ -20,14 +20,12 @@ export class ProfileComponent implements OnInit{
 
   musicians: Musician[];
   musician: Musician;
-  event: Event;
+  //array temporaria que armazena o 1 elemento elemento: o evento atual sendo criado.
   events: Event[] = [];
   //ainda nao serve pra nada
   isAccountOwner : boolean = true;
 
   constructor(private musicianService: MusicianService) {}
-
-  eventsComponent : EventsComponent ;
 
   updateMusician(musician: Musician): void {
     this.musicianService.update(musician).subscribe(
@@ -62,7 +60,6 @@ export class ProfileComponent implements OnInit{
   }
 
   createEvent(e: Event): void{
-    this.eventsComponent.createEvent(e);
   }
 
   ngOnInit(): void {
