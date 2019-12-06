@@ -21,6 +21,7 @@ export class ProfileComponent implements OnInit{
   musicians: Musician[];
   musician: Musician;
   event: Event;
+  events: Event[] = [];
   //ainda nao serve pra nada
   isAccountOwner : boolean = true;
 
@@ -53,25 +54,32 @@ export class ProfileComponent implements OnInit{
     this.musician.repertoire.push(song);
   }
 
+  newEvent(): void{
+    var event = new Event();
+    this.musician.events.push(event);
+    this.events.pop();
+    this.events.push(event);
+  }
+
   createEvent(e: Event): void{
     this.eventsComponent.createEvent(e);
   }
 
   ngOnInit(): void {
 
-  this.musicianService.getMusicians()
-  .subscribe(
-      (ms) =>  { this.musicians = ms; },
+    this.musicianService.getMusicians()
+    .subscribe(
+        (ms) =>  { this.musicians = ms; },
+        (msg) => { alert(msg.message); }
+    );
+    
+    //salva o usuario atual em "musician"
+    this.musicianService.getLoggedMusician()
+    .subscribe(
+      (m) => 
+      {this.musician = m;},
       (msg) => { alert(msg.message); }
-  );
-
-  //salva o usuario atual em "musician"
-  this.musicianService.getLoggedMusician()
-  .subscribe(
-    (m) => 
-    {this.musician = m;},
-    (msg) => { alert(msg.message); }
-  );
+    );
 
   }
 }

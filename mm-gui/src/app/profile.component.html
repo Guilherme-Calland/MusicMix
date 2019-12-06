@@ -1,7 +1,4 @@
-<!-- parta em 9 colunas depois, assim, as fotos e videos nao ficam tao esticados -->
-
 <div class = "profile">
-    <!-- <img src = "http://pixelartmaker.com/art/21c0f5af5a98aee.png" width = "100px"> -->
     <div class = "profile-item short block one">
         <div *ngIf= "isAccountOwner && !editProfileMode">
             <button class = "button"  (click) = "editProfileMode = true">edit profile</button> 
@@ -23,18 +20,19 @@
     
     <div class = "profile-item short block two">
         <div *ngIf = "editProfileMode">
-            <div *ngIf = "!creatingEvent">
-                <button class = "button" (click) = "creatingEvent = true">create event</button>
-                <button class = "button" (click) = "getExistingEvent()">submit existing event</button>
+            <!-- <div *ngIf = "!creatingEvent"> -->
+            <div>
+                <button class = "button" (click) = "creatingEvent = true; newEvent()">create event</button>
+                <!-- <button class = "button" (click) = "getExistingEvent()">submit existing event</button> -->
             </div>
             <div *ngIf = "creatingEvent">
-                <table>
+                <table *ngFor = "let e of events">
                         <tr>
                             <td>
                                 event name:
                             </td>
                             <td>
-                                <input [(ngModel)] = event.name >
+                                <input [(ngModel)] = "e.name" >
                             </td>
                         </tr>
                         <tr>
@@ -42,14 +40,14 @@
                                 event date:
                             </td>
                             <td>
-                                <input [(ngModel)] = event.date >
+                                <input [(ngModel)] = "e.date" >
                             </td>
                         </tr>
                         <tr>
                             <td>
                             </td>
                             <td>
-                                <button class = "button" (click) = "createEvent(event);creatingEvent = false">create</button>
+                                <button class = "button" (click) = "creatingEvent = false">create</button>
                             </td>
                         </tr>
                 </table>
