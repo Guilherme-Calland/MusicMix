@@ -185,7 +185,7 @@
 <div *ngIf = "chatMode">
     <div>
         <input [(ngModel)] = message.text>
-        <button class = "button" (click) = sendMessage()>send</button>
+        <button class = "button" (click) = "sendMessage(message);">send</button>
     </div>
     <div *ngFor= "let m of messages">
         {{ m.sender }} : {{ m.text }}

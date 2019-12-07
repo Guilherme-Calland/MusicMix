@@ -27,8 +27,12 @@ export class ProfileComponent implements OnInit{
   //Musicians
   ///////////////////////////
   
+  //todos os musicos cadastrados no servidor
   musicians: Musician[];
-  musician: Musician;
+
+  //o musico atualmente logado
+  musician: Musician = new Musician();
+
   events: Event[] = [];
   duplicatedeventname:Boolean=false;
   duplicatedbandname:boolean=false;
@@ -113,6 +117,11 @@ export class ProfileComponent implements OnInit{
   ////Chat
   ///////////////
 
+  
+  message: Message = new Message(this.musician.name);
+  //o array inteiro de mensagens do servidor
+  messages: Message[];
+  
   sendMessage(m: Message){
     this.chatService.create(m).subscribe(
       ar => {

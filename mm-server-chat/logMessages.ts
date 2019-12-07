@@ -5,7 +5,7 @@ export class LogMessages {
   messages: Message[] = [];
 
   logThis(message: Message): Message {
-      var result = new Message();
+      var result = new Message("");
       result.copyFrom(message);
       this.messages.push(result);
       return result;

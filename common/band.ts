@@ -3,7 +3,6 @@ import {Musician} from './musician';
 export class Band{
     public name: String;
     public style: String;
-    public dateCreation: String;
     public members: Musician[];
 
     constructor() {
@@ -14,7 +13,6 @@ export class Band{
         this.name = "";
         this.style= "";
         this.members = [];
-        //this.bands = [];
       }
     
       clone(): Band {
