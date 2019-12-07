@@ -2,8 +2,8 @@ export class Message {
     sender: string;
     text: string;
 
-  constructor(sender: string){
-    this.sender = sender;
+  constructor(from: string){
+    this.sender = from;
     this.text = "";
   }
 

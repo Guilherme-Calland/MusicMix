@@ -68,6 +68,13 @@ export class ProfileComponent implements OnInit{
         (ms) =>  { this.musicians = ms; },
         (msg) => { alert(msg.message); }
     );
+
+    this.chatService.getMessages()
+    .subscribe(
+        (ms) =>  { this.messages = ms; },
+        (msg) => { alert(msg.message); }
+    );
+    
     
     //salva o usuario atual em "musician"
     this.musicianService.getLoggedMusician()
@@ -123,6 +130,7 @@ export class ProfileComponent implements OnInit{
   messages: Message[];
   
   sendMessage(m: Message){
+    this.updateMusician(this.musician);
     this.chatService.create(m).subscribe(
       ar => {
         if (ar) {
@@ -130,5 +138,11 @@ export class ProfileComponent implements OnInit{
         } 
       },
       msg => { alert(msg.message); });
-    }
+
+    this.chatService.getMessages()
+    .subscribe(
+        (ms) =>  { this.messages = ms; },
+        (msg) => { alert(msg.message); }
+    );
+  }
 }

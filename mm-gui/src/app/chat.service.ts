@@ -22,4 +22,11 @@ export class ChatService {
             map( res => {if (res.success) {return message;} else {return null;}} )
         ); 
   }
+
+  getMessages(): Observable<Message[]> {
+    return this.http.get<Message[]>(this.taURL + "/chat")
+      .pipe(
+        retry(2)
+      );
+  }
 }

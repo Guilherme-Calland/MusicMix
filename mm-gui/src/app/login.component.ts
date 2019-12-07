@@ -10,7 +10,6 @@ import { MusicianService } from './musician.service';
 export class LoginComponent {
 
   musician: Musician = new Musician();
-  musicians: Musician[] = [];
   duplicatedusername: boolean = false;
   invalidlogin: boolean = false;
 
