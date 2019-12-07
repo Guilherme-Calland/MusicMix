@@ -18,17 +18,21 @@ import { EventService } from './event.service';
 export class ProfileComponent implements OnInit{
   
   constructor(private musicianService: MusicianService, private eventService: EventService) {}
-
+  
   //////////////////////////
   //Musicians
   ///////////////////////////
-
+  
   musicians: Musician[];
   musician: Musician;
-  //array temporaria que armazena o 1 elemento elemento: o evento atual sendo criado.
- 
-  //ainda nao serve pra nada
-  isAccountOwner : boolean = true;
+  events: Event[] = [];
+  duplicatedeventname:Boolean=false;
+  duplicatedbandname:boolean=false;
+  chatMode : boolean = false;
+  
+  
+  editProfileMode : Boolean = false;
+  creatingEvent : Boolean = false;
 
   updateMusician(musician: Musician): void {
     this.musicianService.update(musician).subscribe(
@@ -36,8 +40,6 @@ export class ProfileComponent implements OnInit{
        (msg) => { alert(msg.message); }
     );
   }
-
-  
 
   //insere um novo intrumento em musico
   newInstrument(): void{
@@ -51,12 +53,28 @@ export class ProfileComponent implements OnInit{
     this.musician.repertoire.push(song);
   }
 
-  /////////////////////
-  //Events
-  //////////////////////
-  
-  events: Event[] = [];
-  duplicatedeventname:boolean=false;
+  ngOnInit(): void {
+
+    this.musicianService.getMusicians()
+    .subscribe(
+        (ms) =>  { this.musicians = ms; },
+        (msg) => { alert(msg.message); }
+    );
+    
+    //salva o usuario atual em "musician"
+    this.musicianService.getLoggedMusician()
+    .subscribe(
+      (m) => 
+      {this.musician = m;},
+      (msg) => { alert(msg.message); }
+      );
+      
+    }
+    
+    /////////////////////
+    //Events
+    //////////////////////
+    
 
   newEvent(): void{
     var event = new Event();
@@ -86,34 +104,10 @@ export class ProfileComponent implements OnInit{
     this.musician.bands.push(band);
   }
 
-  duplicatedbandname:boolean=false;
 
-  createBand(b: Band): void{
-    this.bandService.create(b).subscribe(
-      ar => {
-        if (ar) {
-        } else {
-            this.duplicatedbandname = true;
-        } 
-      },
-      msg => { alert(msg.message); });
-  }
+  ////////////////
+  ////Chat
+  ///////////////
 
-  ngOnInit(): void {
 
-    this.musicianService.getMusicians()
-    .subscribe(
-        (ms) =>  { this.musicians = ms; },
-        (msg) => { alert(msg.message); }
-    );
-    
-    //salva o usuario atual em "musician"
-    this.musicianService.getLoggedMusician()
-    .subscribe(
-      (m) => 
-      {this.musician = m;},
-      (msg) => { alert(msg.message); }
-    );
-
-  }
 }

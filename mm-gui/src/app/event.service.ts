@@ -22,4 +22,23 @@ export class EventService {
             map( res => {if (res.success) {return event;} else {return null;}} )
         ); 
   }
+
+  check(event: Event): Observable<Event> {
+    this.requestBuffer[0] = "check";
+    this.requestBuffer[1] = event;
+    return this.http.post<any>(this.taURL + "/event", this.requestBuffer, {headers: this.headers})
+      .pipe( 
+        retry(2),
+        map( res => {if (res.success) {return event;} else {return null;}} )
+      ); 
+  }
+
+  getEvent(): Observable<Event> {
+    this.requestBuffer[0] = "get";
+    this.requestBuffer[1] = null; 
+    return this.http.post<any>(this.taURL + "/event", this.requestBuffer, {headers: this.headers})
+      .pipe( 
+        retry(2)
+      ); 
+  }
 }

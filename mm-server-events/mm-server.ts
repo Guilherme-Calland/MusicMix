@@ -33,13 +33,13 @@ mmserver.post('/event', function (req: express.Request, res: express.Response) {
     if(response[0]=="create"){
       response = subscription.subscribeThis(response[1]);
     } else if (response[0]=="check"){
-      response = subscription.returnSubbedUser(response[1]);
+      response = subscription.returnSubbedEvent(response[1]);
     }
 
     if (response) {
-      res.send({"success": "O musico foi cadastrado com sucesso"});
+      res.send({"success": "sucesso"});
     } else {
-      res.send({"failure": "O musico não pode ser cadastrado"});
+      res.send({"failure": "fracasso"});
     }
   } else if (response[0] == "get"){
     res.send(JSON.stringify(subscription.getEvent()));

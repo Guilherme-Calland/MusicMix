@@ -16,16 +16,10 @@ export class SubscribeEvents {
     return result;
   }
 
-  returnSubbedUser(event: Event): Event {
-    /*var subbedEvent = this.getSubbedEvent(event.name);
-    if(subbedEvent){
-      if(this.wrongPassword(event.password, subbedEvent.password)){
-        subbedEvent = null;
-      }
-    }
+  returnSubbedEvent(event: Event): Event {
+    var subbedEvent = this.getSubbedEvent(event.name);
     this.event = subbedEvent;
-    return subbedEvent;*/
-    return null;
+    return subbedEvent;
   }
 
   nameNotSubscribed(name: String): boolean {

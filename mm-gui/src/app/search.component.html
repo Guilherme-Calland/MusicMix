@@ -1,0 +1,17 @@
+<html (mousemove)="onMove()">
+    <h1>Search Events</h1>
+    <input [(ngModel)] = "tempEvent.name">
+    <button class= "button" (click) = "searchEvent(tempEvent)">search</button>
+    <table class = "event" *ngIf= "!invalidEvent">
+        <tr>
+            {{ event.name }}
+        </tr>
+        <tr>
+            {{ event.date }}
+        </tr>
+    </table>
+    <br>
+    <div *ngIf = "invalidEvent">
+    Event doesn't exist
+    </div>
+</html>

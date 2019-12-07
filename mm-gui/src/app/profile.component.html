@@ -1,162 +1,193 @@
-<div class = "profile">
-    <div class = "profile-item short block one">
-        <div *ngIf= "isAccountOwner && !editProfileMode">
-            <button class = "button"  (click) = "editProfileMode = true">edit profile</button> 
-        </div>
-        <div *ngIf= "editProfileMode">
-            <button class = "button"  (click) = "editProfileMode = false; updateMusician(musician)">accept changes</button>
-        </div>
-        <div *ngIf = "!editProfileMode"> 
-            <br>
-            {{ musician.name }}
-            <br>
-        </div>
-        <div *ngIf="editProfileMode">
-            <br>
-            name:<input [(ngModel)] = "musician.name">
-        </div>
-    </div>
-
-    
-    <div class = "profile-item short block two">
-        <div *ngIf = "editProfileMode">
-            <!-- <div *ngIf = "!creatingEvent"> -->
-            <div>
-                <button class = "button" (click) = "creatingEvent = true; newEvent()">create event</button>
-                <!-- <button class = "button" (click) = "getExistingEvent()">submit existing event</button> -->
+<div *ngIf= "!chatMode">
+    <div class = "profile">
+        <div class = "profile-item short block one">
+            <div *ngIf= "!editProfileMode">
+                <button class = "button"  (click) = "editProfileMode = true">edit profile</button> 
+                <button class = "button" (click) = "chatMode = true">enterForum</button>
             </div>
-            <div *ngIf = "creatingEvent">
-                <table *ngFor = "let e of events">
-                        <tr>
-                            <td>
-                                event name:
-                            </td>
-                            <td>
-                                <input [(ngModel)] = "e.name" >
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                event date:
-                            </td>
-                            <td>
-                                <input [(ngModel)] = "e.date" >
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                            </td>
-                            <td>
-                                <button class = "button" (click) = "creatingEvent = false; createEvent(e)">accept</button>
-                            </td>
-                        </tr>
-                </table>
+            <div *ngIf= "editProfileMode">
+                <button class = "button"  (click) = "editProfileMode = false; updateMusician(musician)">accept changes</button>
             </div>
-        </div>
-        <div *ngIf = "!creatingEvent">
-            Events:
-            <div class = "events">
-                {{ musician.events[0].name }}
+            <div *ngIf = "!editProfileMode"> 
                 <br>
-                {{ musician.events[0].date }}
+                {{ musician.name }}
+                <br>
+            </div>
+            <div *ngIf="editProfileMode">
+                <br>
+                name:<input [(ngModel)] = "musician.name">
+            </div>
+        </div>
+    
+        
+        <div class = "profile-item short block two" >
+            <div *ngIf = "editProfileMode">
+                <div>
+                    <button class = "button" (click) = "creatingEvent = true; newEvent()">create event</button>
+                </div>
+                <div *ngIf = "creatingEvent">
+                    <table *ngFor = "let e of events">
+                            <tr>
+                                <td>
+                                    event name:
+                                </td>
+                                <td>
+                                    <input [(ngModel)] = "e.name" >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    event date:
+                                </td>
+                                <td>
+                                    <input [(ngModel)] = "e.date" >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                    <button class = "button" (click) = "creatingEvent = false; createEvent(e)">accept</button>
+                                </td>
+                            </tr>
+                    </table>
+                </div>
+            </div>
+            <div *ngIf = "!creatingEvent">
+                Events:
+                <div class = "events">
+                    {{ musician.events[0].name }}
+                    <br>
+                    {{ musician.events[0].date }}
+                </div>
+            </div>
+        </div>
+        <div class = "profile-item short block three">
+            <div class = "events">
+                <br>
+                {{ musician.events[3].name }}
+                <br>
+                {{ musician.events[3].date }}
+            </div>
+        </div>
+        <div class = "profile-item long block four">
+            <table class = "info" *ngIf = "!editProfileMode">
+                <tr>
+                    <td>email:</td><td>bands:</td>
+                </tr>
+                <tr>
+                    <td>{{musician.email}}</td>
+                        <table>
+                            <tr *ngFor="let b of musician.bands">{{ b.name }}</tr>
+                        </table>
+                </tr>
+                
+                <tr>
+                    <td>instruments:</td><td>repertoire:</td>
+                </tr>
+                <tr>
+                    <td>
+                        <table>
+                            <tr *ngFor = "let i of musician.instruments">
+                                {{ i.name }}
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        <table>
+                            <tr *ngFor = "let r of musician.repertoire">
+                                {{ r.name }}
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+    
+            <table class = "info" *ngIf = "editProfileMode">
+                <tr>
+                    <td>email:</td><td>bands:</td>
+                </tr>
+                <tr>
+                    <td><input [(ngModel)] = "musician.email"></td>
+                    <table>
+                        <tr *ngFor = "let b of musician.bands">
+                            <input [(ngModel)] = "b.name">
+                        </tr>
+                    </table>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td> <button class = "button" (click) = "newBand()">add</button></td>
+                </tr>
+                <tr>
+                    <td>instruments:</td><td>repertoire:</td>
+                </tr>
+                <tr>
+                    <td>
+                        <table>
+                            <tr *ngFor = "let i of musician.instruments">
+                                <input [(ngModel)] = "i.name">
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        <table>
+                            <tr *ngFor = "let r of musician.repertoire">
+                                <input [(ngModel)] = "r.name">
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                </tr>
+                <tr>
+                    <td> <button class = "button" (click) = "newInstrument()">add</button></td>
+                    <td> <button class = "button" (click) = "newSong()">add</button></td>
+                </tr>
+            </table> 
+    
+        </div>
+        <div class = "profile-item short block five">
+            <div class = "events">
+                <br>
+                {{ musician.events[1].name }}
+                <br>
+                {{ musician.events[1].date }}
+            </div>
+        </div>
+        <div class = "profile-item short block six">
+            <div class = "events">
+                <br>
+                {{ musician.events[4].name }}
+                <br>
+                {{ musician.events[4].date }}
+            </div>
+        </div>
+        <div class = "profile-item short block eight">
+            <div class = "events">
+                <br>
+                {{ musician.events[2].name }}
+                <br>
+                {{ musician.events[2].date }}
+            </div>
+        </div>
+        <div class = "profile-item short block nine">
+            <div class = "events">
+                <br>
+                {{ musician.events[5].name }}
+                <br>
+                {{ musician.events[5].date }}
             </div>
         </div>
     </div>
-    <div class = "profile-item short block three">three</div>
-    <div class = "profile-item long block four">
-        <table class = "info" *ngIf = "!editProfileMode">
-            <tr>
-                <td>email:</td><td>bands:</td>
-            </tr>
-            <tr>
-                <td>{{musician.email}}</td>
-                    <table>
-                        <tr *ngFor="let b of musician.bands">{{ b.name }}</tr>
-                    </table>
-            </tr>
-            
-            <tr>
-                <td>instruments:</td><td>repertoire:</td>
-            </tr>
-            <tr>
-                <td>
-                    <table>
-                        <tr *ngFor = "let i of musician.instruments">
-                            {{ i.name }}
-                        </tr>
-                    </table>
-                </td>
-                <td>
-                    <table>
-                        <tr *ngFor = "let r of musician.repertoire">
-                            {{ r.name }}
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-        </table>
-
-        <table class = "info" *ngIf = "editProfileMode">
-            <tr>
-                <td>email:</td><td>bands:</td>
-            </tr>
-            <tr>
-                <td><input [(ngModel)] = "musician.email"></td>
-                <table>
-                    <tr *ngFor = "let b of musician.bands">
-                        <input [(ngModel)] = "b.name">
-                    </tr>
-                </table>
-            </tr>
-            <tr>
-                <td></td>
-                <td> <button class = "button" (click) = "newBand()">add</button></td>
-            </tr>
-            <tr>
-                <td>instruments:</td><td>repertoire:</td>
-            </tr>
-            <tr>
-                <td>
-                    <table>
-                        <tr *ngFor = "let i of musician.instruments">
-                            <input [(ngModel)] = "i.name">
-                        </tr>
-                    </table>
-                </td>
-                <td>
-                    <table>
-                        <tr *ngFor = "let r of musician.repertoire">
-                            <input [(ngModel)] = "r.name">
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <tr>
-            </tr>
-            <tr>
-                <td> <button class = "button" (click) = "newInstrument()">add</button></td>
-                <td> <button class = "button" (click) = "newSong()">add</button></td>
-            </tr>
-        </table> 
-
-    </div>
-    <div class = "profile-item short block five">
-        <div class = "events">
-            <br>
-            {{ musician.events[1].name }}
-            <br>
-            {{ musician.events[1].date }}
-        </div>
-    </div>
-    <div class = "profile-item short block six">six</div>
-    <div class = "profile-item short block eight">
-        <div class = "events">
-            <br>
-            {{ musician.events[2].name }}
-            <br>
-            {{ musician.events[2].date }}
-        </div>
-    </div>
-    <div class = "profile-item short block nine">eight</div>
 </div>
-  
+
+<div *ngIf = "chatMode">
+    <div>
+        <input [(ngModel)] = message.text>
+        <button class = "button" (click) = sendMessage()>send</button>
+    </div>
+    <div *ngFor= "let m of messages">
+        {{ m.sender }} : {{ m.text }}
+    </div>
+</div>
