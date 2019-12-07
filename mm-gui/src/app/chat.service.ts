@@ -16,7 +16,7 @@ export class ChatService {
   create(message: Message): Observable<Message> {
     this.requestBuffer[0] = "create";
     this.requestBuffer[1] = message; 
-    return this.http.post<any>(this.taURL + "/chat", this.requestBuffer, {headers: this.headers})
+    return this.http.post<any>(this.taURL + "/message", this.requestBuffer, {headers: this.headers})
         .pipe( 
             retry(2),
             map( res => {if (res.success) {return message;} else {return null;}} )

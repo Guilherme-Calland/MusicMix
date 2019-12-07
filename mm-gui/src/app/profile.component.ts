@@ -7,8 +7,10 @@ import { Band } from '../../../common/band';
 import { Event } from '../../../common/event';
 import { Instrument } from '../../../common/instrument';
 import { Song } from '../../../common/song';
+import { Message } from '../../../common/message';
 import { stringify } from 'querystring';
 import { EventService } from './event.service';
+import { ChatService } from './chat.service';
 
 @Component({
   selector: 'profile',
@@ -17,7 +19,9 @@ import { EventService } from './event.service';
 })
 export class ProfileComponent implements OnInit{
   
-  constructor(private musicianService: MusicianService, private eventService: EventService) {}
+  constructor(private musicianService: MusicianService,
+              private eventService: EventService,
+              private chatService: ChatService  ) {}
   
   //////////////////////////
   //Musicians
@@ -109,5 +113,13 @@ export class ProfileComponent implements OnInit{
   ////Chat
   ///////////////
 
-
+  sendMessage(m: Message){
+    this.chatService.create(m).subscribe(
+      ar => {
+        if (ar) {
+        } else {
+        } 
+      },
+      msg => { alert(msg.message); });
+    }
 }

@@ -48,7 +48,8 @@ export class SubscribeMusicians {
   getMusicians(): Musician[] {
     return this.musicians;
   }
-
+  
+  //retorna o musico que esta atualmente subscrito
   getMusician() : Musician {
     return this.musician;
   }

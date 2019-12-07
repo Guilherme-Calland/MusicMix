@@ -18,15 +18,15 @@ mmserver.use(allowCrossDomain);
 
 mmserver.use(bodyParser.json());
 
-mmserver.post('/chat', function (req: express.Request, res: express.Response) {
+mmserver.post('/message', function (req: express.Request, res: express.Response) {
   var response = req.body;
   
     response = messageLog.logThis(response[1]);
 
     if (response) {
-      res.send({"success": "sucesso"});
+      res.send({"success": "message was delivered"});
     } else {
-      res.send({"failure": "fracasso"});
+      res.send({"failure": "message was not delivered"});
     }
 })
 
@@ -34,7 +34,7 @@ mmserver.get('/chat', function (req: express.Request, res: express.Response) {
   res.send(JSON.stringify(messageLog.getChat()));
 })
 
-mmserver.listen(3002, function () { //warning
+mmserver.listen(3002, function () { 
   console.log('Chat Server listening on port 3002!')
 })
 
