@@ -28,12 +28,6 @@ export class Musician {
     this.events = [];
   }
 
-  clone(): Musician {
-    var musician: Musician = new Musician();
-    musician.copyFrom(this);
-    return musician;
-  }
-
   copyFrom(from: Musician): void {
     this.username = from.username;
     this.password = from.password;

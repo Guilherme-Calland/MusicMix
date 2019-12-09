@@ -89,14 +89,15 @@ export class ProfileComponent implements OnInit{
   ////Chat
   ///////////////
 
-  message: Message = new Message("");
+  message: Message = new Message();
   
   //o array inteiro de mensagens do servidor
   messages: Message[];
   
   sendMessage(){
     var temp = this.musician;
-    var m = new Message(temp.username);
+    var m = new Message();
+    m.sender = temp.username;
     m.text = this.message.text;
     this.chatService.create(m).subscribe(
       ar => {
