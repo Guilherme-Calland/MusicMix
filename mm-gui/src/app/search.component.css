@@ -6,3 +6,19 @@
 .search{
     align-content: center;
 }
+
+nav a {
+    padding: 6px 12px;
+    text-decoration: none;
+    background-color: darkred;
+    color: #ffffff;
+    border-radius: 10px;
+    margin: 5px;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: all ease-in-out 200ms;
+  }
+  nav a:hover {
+    color: #e6e6e6;
+    background-color:blue;
+  }

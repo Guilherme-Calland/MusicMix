@@ -1,5 +1,10 @@
 <html (mousemove)="onMove()">
     <div class = "search">
+        <nav>
+            <br>
+            <a routerLink="/profile">back</a>
+            <br>
+        </nav>
         <table>
             <tr>
                 <td>
@@ -31,6 +36,9 @@
                         </tr>
                         <tr>
                             {{ event.date }}
+                        </tr>
+                        <tr>
+                            {{ event.bands }}
                         </tr>
                     </table>
                 </td>

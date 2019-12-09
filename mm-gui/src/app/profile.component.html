@@ -1,4 +1,4 @@
-<div *ngIf= "!chatMode">
+<div *ngIf= "!chatMode" (mousemove)="onMove()">
     <div class = "profile">
         <div class = "profile-item short block one">
             <div *ngIf= "!editProfileMode">
@@ -61,7 +61,13 @@
                             <td>
                             </td>
                         </tr>
+                        <tr>
+                        </tr>
+                        
                     </table>
+                    <div *ngIf = "duplicatedeventname">
+                        Esse evento ja existe!
+                    </div>
                 </div>
             </div>
             <div *ngIf = "!editProfileMode">
@@ -177,11 +183,15 @@
                     <td> <button class = "button" (click) = "newSong()">add</button></td>
                 </tr>
             </table> 
-    
         </div>
-        
+    </div>
+</div>
 <div *ngIf = "chatMode"> 
-        <div>
+    <div>
+        <button class = "buttonBack" (click) = "chatMode = false">back</button>
+        <br>
+    </div>
+    <div>
         <input [(ngModel)] = message.text>
         <button class = "button" (click) = "sendMessage();">send</button>
     </div>

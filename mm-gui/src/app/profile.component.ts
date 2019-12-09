@@ -30,11 +30,9 @@ export class ProfileComponent implements OnInit{
   //o musico atualmente logado
   musician: Musician = new Musician();
   duplicatedeventname:Boolean=false;
-  duplicatedbandname:boolean=false;
-  
+    
   editProfileMode : Boolean = false;
-  creatingEvent : Boolean = false;
-  
+    
   updateMusician(musician: Musician): void {
     this.musicianService.update(musician).subscribe(
        (a) => { if (a == null) alert("musician not found :("); },
@@ -54,28 +52,10 @@ export class ProfileComponent implements OnInit{
     this.musician.repertoire.push(song);
   }
 
-  ngOnInit(): void {
-
-    this.chatService.getMessages()
-    .subscribe(
-        (ms) =>  { this.messages = ms; },
-        (msg) => { alert(msg.message); }
-    );
-    
-    
-    //salva o usuario atual em "musician"
-    this.musicianService.getLoggedMusician()
-    .subscribe(
-      (m) => 
-      {this.musician = m;},
-      (msg) => { alert(msg.message); }
-      );
-      
-    }
-    
-    /////////////////////
-    //Events
-    //////////////////////
+  
+  /////////////////////
+  //Events
+  //////////////////////
     
 
   newEvent(): void{
@@ -93,25 +73,21 @@ export class ProfileComponent implements OnInit{
       },
       msg => { alert(msg.message); });
   }
-
+  
   ////////////
   ///Bands
   ////////////
-
+  
   //insere uma nova banda no musico
   newBand(): void {
     var band = new Band();
     this.musician.bands.push(band);
   }
 
-
+  
   ////////////////
   ////Chat
   ///////////////
-
-  temp : Musician ;
-  message2 : Message ;
-
 
   message: Message = new Message("");
   
@@ -129,11 +105,33 @@ export class ProfileComponent implements OnInit{
         } 
       },
       msg => { alert(msg.message); });
-
+      
     this.chatService.getMessages()
     .subscribe(
         (ms) =>  { this.messages = ms; },
         (msg) => { alert(msg.message); }
     );
   }
+
+  ngOnInit(): void {
+
+    this.chatService.getMessages()
+    .subscribe(
+        (ms) =>  { this.messages = ms; },
+        (msg) => { alert(msg.message); }
+    );
+    
+    
+    //salva o usuario atual em "musician"
+    this.musicianService.getLoggedMusician()
+    .subscribe(
+      (m) => 
+      {this.musician = m;},
+      (msg) => { alert(msg.message); }
+      );
+  }
+
+  onMove(): void {
+    this.duplicatedeventname = false;
+  }    
 }
