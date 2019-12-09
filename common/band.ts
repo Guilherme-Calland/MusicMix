@@ -24,7 +24,6 @@ export class Band{
       copyFrom(from: Band): void {
         this.name = from.name;
         this.style = from.style;
-        //this.bands = from.bands;
       }
       
 }

@@ -21,6 +21,7 @@
     
         
         <div class = "profile-item short block two" >
+            Events:
             <div *ngIf = "editProfileMode">
                 <div>
                     <button class = "button" (click) = "creatingEvent = true; newEvent()">create event</button>
@@ -53,8 +54,7 @@
                     </table>
                 </div>
             </div>
-            <div *ngIf = "!creatingEvent">
-                Events:
+            <div>
                 <div class = "events">
                     {{ musician.events[0].name }}
                     <br>
@@ -182,10 +182,10 @@
     </div>
 </div>
 
-<div *ngIf = "chatMode">
+<div *ngIf = "chatMode"> 
     <div>
         <input [(ngModel)] = message.text>
-        <button class = "button" (click) = "sendMessage(message);">send</button>
+        <button class = "button" (click) = "sendMessage();">send</button>
     </div>
     <div *ngFor= "let m of messages">
         <br>

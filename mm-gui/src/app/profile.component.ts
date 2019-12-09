@@ -32,16 +32,13 @@ export class ProfileComponent implements OnInit{
 
   //o musico atualmente logado
   musician: Musician = new Musician();
-
   events: Event[] = [];
   duplicatedeventname:Boolean=false;
   duplicatedbandname:boolean=false;
-  chatMode : boolean = false;
-  
   
   editProfileMode : Boolean = false;
   creatingEvent : Boolean = false;
-
+  
   updateMusician(musician: Musician): void {
     this.musicianService.update(musician).subscribe(
        (a) => { if (a == null) alert("musician not found :("); },
@@ -124,13 +121,19 @@ export class ProfileComponent implements OnInit{
   ////Chat
   ///////////////
 
+  temp : Musician ;
+  message2 : Message ;
+
+
+  message: Message = new Message("");
   
-  message: Message = new Message(this.musician.name);
   //o array inteiro de mensagens do servidor
   messages: Message[];
   
-  sendMessage(m: Message){
-    this.updateMusician(this.musician);
+  sendMessage(){
+    var temp = this.musician;
+    var m = new Message(temp.username);
+    m.text = this.message.text;
     this.chatService.create(m).subscribe(
       ar => {
         if (ar) {
