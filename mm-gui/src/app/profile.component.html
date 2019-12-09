@@ -24,53 +24,67 @@
             Events:
             <div *ngIf = "editProfileMode">
                 <div>
-                    <button class = "button" (click) = "creatingEvent = true; newEvent()">create event</button>
+                    <button class = "button" (click) = "newEvent()">create event</button>
                 </div>
-                <div *ngIf = "creatingEvent">
-                    <table *ngFor = "let e of events">
-                            <tr>
-                                <td>
-                                    event name:
-                                </td>
-                                <td>
-                                    <input [(ngModel)] = "e.name" >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    event date:
-                                </td>
-                                <td>
-                                    <input [(ngModel)] = "e.date" >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                </td>
-                                <td>
-                                    <button class = "button" (click) = "creatingEvent = false; createEvent(e)">accept</button>
-                                </td>
-                            </tr>
+                <div *ngIf = "editProfileMode">
+                    <table *ngFor = "let e of musician.events">
+                        <tr>
+                            <td>
+                                event name:
+                            </td>
+                            <td>
+                                <input [(ngModel)] = "e.name" >
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                event date:
+                                <br>
+                            </td>
+                            <td>
+                                <input [(ngModel)] = "e.date" >
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            </td>
+                            <button class = "button" (click) = "createEvent(e)">accept</button>
+                            <td>
+                            </td>
+                        </tr>
                     </table>
                 </div>
             </div>
-            <div>
-                <div class = "events">
-                    {{ musician.events[0].name }}
-                    <br>
-                    {{ musician.events[0].date }}
-                </div>
+            <div *ngIf = "!editProfileMode">
+                <table *ngFor = "let e of musician.events">
+                        <tr>
+                            <td>
+                                event name:
+                            </td>
+                            <td>
+                                {{e.name}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                event date:
+                            </td>
+                            <td>
+                                {{e.date}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                        </tr>
+                </table>
             </div>
         </div>
-        <div class = "profile-item short block three">
-            <div class = "events">
-                <br>
-                {{ musician.events[3].name }}
-                <br>
-                {{ musician.events[3].date }}
-            </div>
-        </div>
-        <div class = "profile-item long block four">
+        <div class = "profile-item long block three">
             <table class = "info" *ngIf = "!editProfileMode">
                 <tr>
                     <td>email:</td><td>bands:</td>
@@ -78,7 +92,8 @@
                 <tr>
                     <td>{{musician.email}}</td>
                         <table>
-                            <tr *ngFor="let b of musician.bands">{{ b.name }}</tr>
+                            <tr *ngFor="let b of musician.bands">
+                                {{ b.name }}</tr>
                         </table>
                 </tr>
                 
@@ -147,43 +162,9 @@
             </table> 
     
         </div>
-        <div class = "profile-item short block five">
-            <div class = "events">
-                <br>
-                {{ musician.events[1].name }}
-                <br>
-                {{ musician.events[1].date }}
-            </div>
-        </div>
-        <div class = "profile-item short block six">
-            <div class = "events">
-                <br>
-                {{ musician.events[4].name }}
-                <br>
-                {{ musician.events[4].date }}
-            </div>
-        </div>
-        <div class = "profile-item short block eight">
-            <div class = "events">
-                <br>
-                {{ musician.events[2].name }}
-                <br>
-                {{ musician.events[2].date }}
-            </div>
-        </div>
-        <div class = "profile-item short block nine">
-            <div class = "events">
-                <br>
-                {{ musician.events[5].name }}
-                <br>
-                {{ musician.events[5].date }}
-            </div>
-        </div>
-    </div>
-</div>
-
+        
 <div *ngIf = "chatMode"> 
-    <div>
+        <div>
         <input [(ngModel)] = message.text>
         <button class = "button" (click) = "sendMessage();">send</button>
     </div>

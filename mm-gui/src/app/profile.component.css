@@ -7,7 +7,7 @@
     min-height:75vh;
     height:100%;
     grid-template-rows: repeat(3); 
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-gap:5px;
     /* grid-template-rows: repeat(3, 100px);
     grid-template-columns: repeat(2,100px); */
@@ -55,40 +55,15 @@
 }
 
 .two{
-
+    grid-row: span 3;
+    height : fit-content;
+    min-height: 93.5vh;
 }
 
 .three{
-
-}    
-
-.four{
-    /* height: fit-content; */
     height : fit-content;
     min-height: 61.5vh;
-}
-
-.five{
-    
-}
-
-
-.six{
-    
-    
-}
-
-.seven{
-    
-}
-
-.eight{
-    
-}
-
-.nine{
-    
-}
+}    
 
 .foto{
     background-image: url(//pixelartmaker.com/art/21c0f5af5a98aee.png) ;

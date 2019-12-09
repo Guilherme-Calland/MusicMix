@@ -26,13 +26,9 @@ export class ProfileComponent implements OnInit{
   //////////////////////////
   //Musicians
   ///////////////////////////
-  
-  //todos os musicos cadastrados no servidor
-  musicians: Musician[];
 
   //o musico atualmente logado
   musician: Musician = new Musician();
-  events: Event[] = [];
   duplicatedeventname:Boolean=false;
   duplicatedbandname:boolean=false;
   
@@ -60,12 +56,6 @@ export class ProfileComponent implements OnInit{
 
   ngOnInit(): void {
 
-    this.musicianService.getMusicians()
-    .subscribe(
-        (ms) =>  { this.musicians = ms; },
-        (msg) => { alert(msg.message); }
-    );
-
     this.chatService.getMessages()
     .subscribe(
         (ms) =>  { this.messages = ms; },
@@ -91,8 +81,6 @@ export class ProfileComponent implements OnInit{
   newEvent(): void{
     var event = new Event();
     this.musician.events.push(event);
-    this.events.pop();
-    this.events.push(event);
   }
 
   createEvent(e: Event): void {
