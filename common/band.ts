@@ -2,8 +2,6 @@ import {Musician} from './musician';
 
 export class Band{
     public name: String;
-    public style: String;
-    public members: Musician[];
 
     constructor() {
         this.clean();
@@ -11,8 +9,6 @@ export class Band{
     
       clean(): void {
         this.name = "";
-        this.style= "";
-        this.members = [];
       }
     
       clone(): Band {
@@ -23,7 +19,6 @@ export class Band{
     
       copyFrom(from: Band): void {
         this.name = from.name;
-        this.style = from.style;
       }
       
 }

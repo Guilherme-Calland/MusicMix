@@ -1,7 +1,7 @@
 export class Event {
     name: String;
     date: String;
-    //bands: Band[];
+    bands: String;
   
     constructor() {
       this.clean();
@@ -10,7 +10,7 @@ export class Event {
     clean(): void {
       this.name = "";
       this.date= "";
-      //this.bands = [];
+      this.bands = "";
     }
   
     clone(): Event {
@@ -22,9 +22,7 @@ export class Event {
     copyFrom(from: Event): void {
       this.name = from.name;
       this.date = from.date;
-      //this.bands = from.bands;
+      this.bands = from.bands;
     }
     
-    
-
 }

@@ -47,6 +47,15 @@
                         </tr>
                         <tr>
                             <td>
+                                event bands:
+                                <br>
+                            </td>
+                            <td>
+                                <input [(ngModel)] = "e.bands" >
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
                             </td>
                             <button class = "button" (click) = "createEvent(e)">accept</button>
                             <td>
@@ -71,6 +80,14 @@
                             </td>
                             <td>
                                 {{e.date}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                event bands:
+                            </td>
+                            <td>
+                                {{e.bands}}
                             </td>
                         </tr>
                         <tr>
