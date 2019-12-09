@@ -21,7 +21,7 @@ mmserver.use(bodyParser.json());
 mmserver.post('/message', function (req: express.Request, res: express.Response) {
   var response = req.body;
   
-    response = messageLog.logThis(response[1]);
+    response = messageLog.logThis(response);
 
     if (response) {
       res.send({"success": "message was delivered"});

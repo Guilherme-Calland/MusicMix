@@ -23,7 +23,7 @@ export class EventService {
         ); 
   }
 
-  check(event: Event): Observable<Event> {
+  check(event: Event): Observable<Event> { //searches but returns nothing
     this.requestBuffer[0] = "check";
     this.requestBuffer[1] = event;
     return this.http.post<any>(this.taURL + "/event", this.requestBuffer, {headers: this.headers})
@@ -33,7 +33,7 @@ export class EventService {
       ); 
   }
 
-  getEvent(): Observable<Event> {
+  getEvent(): Observable<Event> { //returns event
     this.requestBuffer[0] = "get";
     this.requestBuffer[1] = null; 
     return this.http.post<any>(this.taURL + "/event", this.requestBuffer, {headers: this.headers})

@@ -10,13 +10,10 @@ export class ChatService {
 
   private headers = new HttpHeaders({'Content-Type': 'application/json'});
   private taURL = 'http://localhost:3002'; 
-  requestBuffer = [];
   constructor(private http: HttpClient) {}
 
   create(message: Message): Observable<Message> {
-    this.requestBuffer[0] = "create";
-    this.requestBuffer[1] = message; 
-    return this.http.post<any>(this.taURL + "/message", this.requestBuffer, {headers: this.headers})
+    return this.http.post<any>(this.taURL + "/message", message, {headers: this.headers})
         .pipe( 
             retry(2),
             map( res => {if (res.success) {return message;} else {return null;}} )

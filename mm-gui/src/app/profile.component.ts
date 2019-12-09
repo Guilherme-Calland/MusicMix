@@ -66,8 +66,8 @@ export class ProfileComponent implements OnInit{
   createEvent(e: Event): void {
     this.eventService.create(e).subscribe(
       ar => {
-        if (ar) {
-        } else {
+        if (ar) { } 
+        else {
             this.duplicatedeventname = true;
         } 
       },
@@ -100,11 +100,7 @@ export class ProfileComponent implements OnInit{
     m.sender = temp.username;
     m.text = this.message.text;
     this.chatService.create(m).subscribe(
-      ar => {
-        if (ar) {
-        } else {
-        } 
-      },
+      ar => { }, 
       msg => { alert(msg.message); });
       
     this.chatService.getMessages()

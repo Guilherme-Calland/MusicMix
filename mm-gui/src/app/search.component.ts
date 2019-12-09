@@ -36,7 +36,6 @@ export class SearchComponent {
           {this.event = e;},
           (msg) => { alert(msg.message); }
         );
-    
     }
 
     onMove(): void {
