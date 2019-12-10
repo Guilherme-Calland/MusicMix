@@ -7,7 +7,7 @@
         <div class = "usuario-e-senha">
             Usuario:
             <br>
-            <input [(ngModel)]="musician.username" >
+            <input [(ngModel)]="musician.username" name="username">
             <div *ngIf="duplicatedusername">
             <br>
                 ja existe um musico com<br>esse nome de usuario
@@ -16,7 +16,7 @@
             <br>
             Senha:
             <br>
-            <input type ="password" [(ngModel)]="musician.password" >
+            <input type ="password" [(ngModel)]="musician.password" name="password">
             <div *ngIf="invalidlogin">
                 nome do usuario ou <br> senha estao errados
             <br>
