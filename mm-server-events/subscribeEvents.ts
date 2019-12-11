@@ -30,10 +30,6 @@ export class SubscribeEvents {
     return this.events.find(a => a.name == name);
   }
 
-  wrongPassword(password1: String, password2: String): boolean{
-    return (password1 != password2);
-  }
-
   update(event: Event): Event {
     var result: Event = this.events.find(a => a.name == event.name);
     if (result) result.copyFrom(event);

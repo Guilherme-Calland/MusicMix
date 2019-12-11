@@ -194,18 +194,22 @@
         </div>
     </div>
 </div>
-<div *ngIf = "chatMode"> 
-    <div>
-        <button class = "buttonBack" (click) = "chatMode = false">back</button>
-        <br>
-    </div>
-    <div>
-        <input [(ngModel)] = message.text>
-        <button class = "button" (click) = "sendMessage();">send</button>
-    </div>
-    <div *ngFor= "let m of messages">
-        <br>
-        {{ m.sender }} : {{ m.text }}
+<div *ngIf = "chatMode" class="texto2"> 
+    <div class="profile2">
+        
+        <div>
+            <button class = "buttonBack" (click) = "chatMode = false">back</button>
+            <br>
+        </div>
+        <div>
+            <input [(ngModel)] = message.text>
+            <button class = "button" (click) = "sendMessage();">send</button>
+        </div>
+        <div *ngFor= "let m of messages">
+            <br>
+            {{ m.sender }} : {{ m.text }}
+        </div>
+        
     </div>
    
 </div>
