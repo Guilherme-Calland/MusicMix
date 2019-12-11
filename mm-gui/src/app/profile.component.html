@@ -71,7 +71,7 @@
                 </div>
             </div>
             <div *ngIf = "!editProfileMode">
-                <table *ngFor = "let e of musician.events">
+                <table *ngFor = "let e of musician.events" class="texto">
                         <tr>
                             <td>
                                 event name:
@@ -110,16 +110,16 @@
         <div class = "profile-item long block three">
             <table class = "info" *ngIf = "!editProfileMode">
                 <tr>
-                    <div class="texto">
-                        <td>email:</td><td>bands:</td>
-                    </div>
+                    <td>email:</td><td>bands:</td>
                 </tr>
                 <tr>
                     <td>{{musician.email}}</td>
+                    <td>
                         <table>
                             <tr *ngFor="let b of musician.bands">
                                 {{ b.name }}</tr>
                         </table>
+                    </td>
                 </tr>
                 
                 <tr>
@@ -147,9 +147,7 @@
     
             <table class = "info" *ngIf = "editProfileMode">
                 <tr>
-                    <div class="texto">
-                        <td>email:</td><td>bands:</td>
-                    </div>
+                    <td>email:</td><td>bands:</td>
                 </tr>
                 <tr>
                     <td><input [(ngModel)] = "musician.email"></td>
@@ -164,9 +162,7 @@
                     <td> <button class = "button" (click) = "newBand()">add</button></td>
                 </tr>
                 <tr>
-                    <div class="texto">
-                        <td>instruments:</td><td>repertoire:</td>
-                    </div>
+                    <td>instruments:</td><td>repertoire:</td>
                 </tr>
                 <tr>
                     <td>

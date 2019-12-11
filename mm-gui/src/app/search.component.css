@@ -2,7 +2,7 @@
     font-size: 70px;
     text-align: left;
     font-family: sans-serif, Helvetica, Arial;
-    color: #ffffff;
+    color: #F76D56;
 }
 
 @-webkit-keyframes fadeIn {
@@ -56,4 +56,17 @@ nav a:hover {
 
 .container {
   margin-right: 100px;
+}
+
+.button {
+  text-align: center;
+  font-family: sans-serif, Times, serif;
+  background-color: #F76D56;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  cursor: hand;
+  margin-left: 5px;
+  color: #ffffff;
 }

@@ -16,33 +16,18 @@
   }
 
 .login-menu {
+  margin: 0 auto;
   text-align:center;
+  background-color:  #191919;
+  opacity: 0.9;
+  width: 300px;
+  height: 300px;
+  box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
   -webkit-animation: fadeIn 1s ease-in-out;
   -moz-animation: fadeIn 1s ease-in-out;
   -o-animation: fadeIn 1s ease-in-out;
   animation: fadeIn 1s ease-in-out;
 }
-
-
-/* 
-.musicians {
-    margin: 0 0 2em 0;
-    list-style-type: none;
-    padding: 0;
-    width: 15em;
-  }
- 
-   .musicians li {
-    cursor: pointer;
-    position: relative;
-    left: 0;
-    background-color: cyan;
-    margin: .5em;
-    padding: .3em 0;
-    height: 1.6em;
-    border-radius: 4px;
-  } */
- 
   .button1 {
     text-align: center;
     font-family: sans-serif, Times, serif;
@@ -83,4 +68,3 @@
     font-family: sans-serif, Helvetica, Arial;
     margin-top: 10px;
   }
- 

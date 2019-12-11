@@ -22,7 +22,7 @@
                 <td>
                 </tr>
                 <tr>
-                        <td *ngIf = "showEvents">
+                        <td *ngIf = "showEvents" class="texto">
                             <button class= "button" (click) = "showEvents = false">Hide</button>
                             <table *ngFor = "let e of events">
                                 <tr>
@@ -36,6 +36,7 @@
                                 </tr>
                                 <tr>
                                 </tr>
+                                <br>
                             </table>
                         </td>
 
