@@ -41,4 +41,11 @@ export class EventService {
         retry(2)
       ); 
   }
+
+  getEvents(): Observable<Event[]> {
+    return this.http.get<Event[]>(this.taURL + "/events")
+      .pipe(
+        retry(2)
+      );
+  }
 }
