@@ -93,15 +93,21 @@ export class ProfileComponent implements OnInit{
   
   //o array inteiro de mensagens do servidor
   messages: Message[];
-  
+  errorMsg: String;
+  booleanError : boolean;
+
   sendMessage(){
     var temp = this.musician;
     var m = new Message();
     m.sender = temp.username;
     m.text = this.message.text;
     this.chatService.create(m).subscribe(
-      ar => { }, 
-      msg => { alert(msg.message); });
+      ar => {
+       }, 
+      msg => { 
+        msg.text = this.errorMsg;
+        this.booleanError = true;
+        alert(msg.message); });
       
     this.chatService.getMessages()
     .subscribe(

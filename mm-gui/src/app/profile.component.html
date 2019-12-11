@@ -204,6 +204,9 @@
         <div>
             <input [(ngModel)] = message.text>
             <button class = "button" (click) = "sendMessage();">send</button>
+            <div *ngIf = "booleanError">
+                {{ errorMsg }}
+            </div>
         </div>
         <div *ngFor= "let m of messages">
             <br>

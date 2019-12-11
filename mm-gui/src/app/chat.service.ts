@@ -12,11 +12,15 @@ export class ChatService {
   private taURL = 'http://localhost:3002'; 
   constructor(private http: HttpClient) {}
 
+
+
   create(message: Message): Observable<Message> {
+    var messageFail = new Message();
+    messageFail.text = ("falha");
     return this.http.post<any>(this.taURL + "/message", message, {headers: this.headers})
         .pipe( 
             retry(2),
-            map( res => {if (res.success) {return message;} else {return null;}} )
+            map( res => {if (res.success) {return message;} else {messageFail;}} )
         ); 
   }
 
