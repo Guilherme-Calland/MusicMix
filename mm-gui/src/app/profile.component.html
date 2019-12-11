@@ -3,34 +3,34 @@
         <div class = "profile-item short block one">
             <div *ngIf= "!editProfileMode">
                 <button class = "button"  (click) = "editProfileMode = true">edit profile</button> 
-                <button class = "button" (click) = "chatMode = true">enterForum</button>
+                <button class = "button" (click) = "chatMode = true">enter Forum</button>
             </div>
             <div *ngIf= "editProfileMode">
                 <button class = "button"  (click) = "editProfileMode = false; updateMusician(musician)">accept changes</button>
             </div>
-            <div *ngIf = "!editProfileMode"> 
+            <div *ngIf = "!editProfileMode" class="texto"> 
                 <br>
                 {{ musician.name }}
                 <br>
             </div>
-            <div *ngIf="editProfileMode">
+            <div *ngIf="editProfileMode" class="texto">
                 <br>
-                name:<input [(ngModel)] = "musician.name">
+                name:<input [(ngModel)] = "musician.name" name = "name">
             </div>
         </div>
     
         
         <div class = "profile-item short block two" >
-            Events:
+            <div class="texto">Events:</div>
             <div *ngIf = "editProfileMode">
                 <div>
                     <button class = "button" (click) = "newEvent()">create event</button>
                 </div>
-                <div *ngIf = "editProfileMode">
-                    <table *ngFor = "let e of musician.events">
+                <div *ngIf = "editProfileMode" >
+                    <table *ngFor = "let e of musician.events" >
                         <tr>
                             <td>
-                                event name:
+                                <div class="texto">event name:</div>
                             </td>
                             <td>
                                 <input [(ngModel)] = "e.name" >
@@ -38,7 +38,7 @@
                         </tr>
                         <tr>
                             <td>
-                                event date:
+                                <div class="texto">event date:</div>
                                 <br>
                             </td>
                             <td>
@@ -47,7 +47,7 @@
                         </tr>
                         <tr>
                             <td>
-                                event bands:
+                                    <div class="texto">event bands:</div>
                                 <br>
                             </td>
                             <td>
@@ -66,7 +66,7 @@
                         
                     </table>
                     <div *ngIf = "duplicatedeventname">
-                        Esse evento ja existe!
+                        <div class="texto">Esse evento ja existe!</div>
                     </div>
                 </div>
             </div>
@@ -110,7 +110,9 @@
         <div class = "profile-item long block three">
             <table class = "info" *ngIf = "!editProfileMode">
                 <tr>
-                    <td>email:</td><td>bands:</td>
+                    <div class="texto">
+                        <td>email:</td><td>bands:</td>
+                    </div>
                 </tr>
                 <tr>
                     <td>{{musician.email}}</td>
@@ -121,7 +123,9 @@
                 </tr>
                 
                 <tr>
-                    <td>instruments:</td><td>repertoire:</td>
+                        <div class="texto">
+                            <td>instruments:</td><td>repertoire:</td>
+                        </div>
                 </tr>
                 <tr>
                     <td>
@@ -143,7 +147,9 @@
     
             <table class = "info" *ngIf = "editProfileMode">
                 <tr>
-                    <td>email:</td><td>bands:</td>
+                    <div class="texto">
+                        <td>email:</td><td>bands:</td>
+                    </div>
                 </tr>
                 <tr>
                     <td><input [(ngModel)] = "musician.email"></td>
@@ -158,7 +164,9 @@
                     <td> <button class = "button" (click) = "newBand()">add</button></td>
                 </tr>
                 <tr>
-                    <td>instruments:</td><td>repertoire:</td>
+                    <div class="texto">
+                        <td>instruments:</td><td>repertoire:</td>
+                    </div>
                 </tr>
                 <tr>
                     <td>

@@ -1,8 +1,26 @@
+@-webkit-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; } 
+  }
+  @-moz-keyframes fadeIn {
+  0% { opacity: 0;}
+  100% { opacity: 1; }
+  }
+  @-o-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+  }
+  @keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+  }
+
 .login-menu {
   text-align:center;
-  /* position:absolute; */
-    /* top: 35%;
-    left: 45.0%; */
+  -webkit-animation: fadeIn 1s ease-in-out;
+  -moz-animation: fadeIn 1s ease-in-out;
+  -o-animation: fadeIn 1s ease-in-out;
+  animation: fadeIn 1s ease-in-out;
 }
 
 
@@ -27,26 +45,42 @@
  
   .button1 {
     text-align: center;
-    font-family: Arial;
-    background-color: lightgreen;
+    font-family: sans-serif, Times, serif;
+    background-color: #191919;
     border: none;
     padding: 5px 10px;
     border-radius: 4px;
     cursor: pointer;
     cursor: hand;
+    margin: 10px;
+    color: #ffffff;
   }
 
   .button2 {
     text-align: center;
-    font-family: Arial;
-    background-color: skyblue;
+    font-family: sans-serif, Times, serif;
+    background-color: #F76D56;
     border: none;
     padding: 5px 10px;
     border-radius: 4px;
     cursor: pointer;
     cursor: hand;
+    margin: 10px;
+    color: #ffffff;
   }
   button:hover {
-    background-color: pink;
+    background-color: rgb(233, 84, 58);
+  }
+
+  .title {
+    color: #ffffff;
+    font-family: sans-serif, Helvetica, Arial;
+    font-size: 40px;
+  }
+
+  .texto {
+    color: #ffffff;
+    font-family: sans-serif, Helvetica, Arial;
+    margin-top: 10px;
   }
  

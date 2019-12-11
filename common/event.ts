@@ -12,4 +12,10 @@ export class Event {
     this.date= "";
     this.bands = "";
   }
+
+  copyFrom(from:Event){
+    this.name=from.name;
+    this.date=from.date;
+    this.bands=from.bands;
+  }
 }

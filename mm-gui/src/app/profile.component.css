@@ -12,6 +12,11 @@
     /* grid-template-rows: repeat(3, 100px);
     grid-template-columns: repeat(2,100px); */
     /* 1fr --> fills space */
+    align-content: center;
+    -webkit-animation: fadeIn 1s ease-in-out;
+    -moz-animation: fadeIn 1s ease-in-out;
+    -o-animation: fadeIn 1s ease-in-out;
+    animation: fadeIn 1s ease-in-out;
 }
 
 .info{
@@ -28,21 +33,21 @@
 }
 
 .block:hover{
-    background-color: blue;
+    background-color: #191919;
     opacity: 1;
 }
 
 .short{
-    background-color: darkred;
-    border-radius: 20px;
+    background-color: #111111;
+    border-radius: 5px;
     /* grid-row:  span 1;
     grid-column: span 3; */
     
 }
 
 .long{
-    background-color: darkred;
-    border-radius: 20px;
+    background-color: #111111;
+    border-radius: 5px;
     grid-row: span 2;
     /* grid-column: span 2; */
     transition: all ease-in-out 500ms;
@@ -88,19 +93,43 @@
     text-align: center;
 }
 
-.buttonBack{
-    padding: 6px 12px;
-    text-decoration: none;
-    background-color: darkred;
-    color: #ffffff;
-    border-radius: 10px;
-    margin: 5px;
-    font-size: 25px;
-    font-family: Arial, Helvetica, sans-serif;
-    transition: all ease-in-out 200ms;
+.buttonBack {
+  padding: 7px 12px;
+  text-decoration: none;
+  background-image: linear-gradient(45deg, #F77D68, #F76D56);
+  color: #ffffff;
+  border-radius: 100px;
+  margin-right: 10px;
+  font-size: 20px;
+  font-family: sans-serif, Helvetica, Arial;
+  transition: all ease-in-out 200ms;
+  float: left;
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+  margin-left: 100px;
+}
+.buttonBack:hover {
+  color: #191919;
+  background-color: #C23B31;
 }
 
-.buttonBack:hover {
-    color: #e6e6e6;
-    background-color:blue;
-}
+@-webkit-keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; } 
+    }
+    @-moz-keyframes fadeIn {
+    0% { opacity: 0;}
+    100% { opacity: 1; }
+    }
+    @-o-keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+    }
+    @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+    }
+
+    .texto {
+        color: #ffffff;
+        font-family: sans-serif, Helvetica, Arial;
+      }

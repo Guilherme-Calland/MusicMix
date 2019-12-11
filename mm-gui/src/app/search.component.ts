@@ -10,8 +10,11 @@ import { EventService } from './event.service';
 export class SearchComponent {
 
     event: Event = new Event();
+    events: Event[];
     tempEvent: Event = new Event();
     searching: boolean = false;
+    showEvents: boolean = false;
+
     constructor(private eventService: EventService) {}
 
     invalidEvent: boolean = false;
@@ -40,5 +43,15 @@ export class SearchComponent {
 
     onMove(): void {
         this.invalidEvent = false;
+    }
+
+    listEvents() : void{
+        this.showEvents = true;
+        this.eventService.getEvents()
+        .subscribe(
+            (es) =>
+            {this.events = es;},
+            (msg) => { alert(msg.message); }
+        )
     }
 }

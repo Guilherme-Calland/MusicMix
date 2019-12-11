@@ -5,20 +5,20 @@
         </h2>
         
         <div class = "usuario-e-senha">
-            Usuario:
+            <div class="texto">Usuario:</div>
             <br>
-            <input [(ngModel)]="musician.username" >
-            <div *ngIf="duplicatedusername">
+            <input [(ngModel)]="musician.username" name="username">
+            <div *ngIf="duplicatedusername" class="texto">
             <br>
                 ja existe um musico com<br>esse nome de usuario
             <br>
             </div>
             <br>
-            Senha:
+            <div class="texto">Senha:</div>
             <br>
-            <input type ="password" [(ngModel)]="musician.password" >
-            <div *ngIf="invalidlogin">
-                nome do usuario ou <br> senha estao errados
+            <input type ="password" [(ngModel)]="musician.password" name="password">
+            <div *ngIf="invalidlogin" class="texto">
+                nome do usuario ou <br> senha estão errados
             <br>
             </div>
             <br>

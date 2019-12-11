@@ -2,13 +2,13 @@
     <div class = "search">
         <nav>
             <br>
-            <a routerLink="/profile">back</a>
+            <a routerLink="/profile">back to profile</a>
             <br>
         </nav>
         <table>
             <tr>
                 <td>
-                    <h1>Search Events</h1>
+                    <h1 class="texto">Search Events</h1>
                 </td>
             </tr>
                 <td>
@@ -16,13 +16,34 @@
                 </td>
             <tr>
                 <td>
-                    <button class= "button" (click) = "searchEvent(tempEvent)">search</button>
+                    <button class= "button" (click) = "searchEvent(tempEvent)">Search</button>
+                    <button class= "button" (click) = "listEvents()">List Events</button>
                 </td>
+                <td>
+                </tr>
+                <tr>
+                        <td *ngIf = "showEvents">
+                            <button class= "button" (click) = "showEvents = false">Hide</button>
+                            <table *ngFor = "let e of events">
+                                <tr>
+                                    {{ e.name }}
+                                </tr>
+                                <tr>
+                                    {{ e.date }}
+                                </tr>
+                                <tr>
+                                    {{ e.bands }}
+                                </tr>
+                                <tr>
+                                </tr>
+                            </table>
+                        </td>
+
             </tr>
             <tr>
                 <td>
-                    <div *ngIf = "invalidEvent">
-                        Event doesn't exist
+                    <div *ngIf = "invalidEvent" class="texto">
+                        Event doesn't exist!
                     </div>
                 </td>
             </tr>
