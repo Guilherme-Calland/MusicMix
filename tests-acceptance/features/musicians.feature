@@ -1,6 +1,6 @@
-Feature: As a professor
-         I want to register students
-         So that I can manage their learning goals
+Feature: As a musician
+         I want to register myself
+         So that I can find out about events and find other musicians
 
 Scenario: Registering musician
 Given I am at the login page
