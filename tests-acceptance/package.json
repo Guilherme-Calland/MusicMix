@@ -1,13 +1,13 @@
 {
   "name": "testes-acceptance",
-  "description": "Testes de aceitação do MusicMix",
+  "description": "Testes de aceitação do teaching assistant",
   "scripts": {
     "tsc": "./node_modules/typescript/bin/tsc",
     "test": "npm run tsc && protractor compiledCode/config/config.js",
     "webdriver-update": "webdriver-manager update",
     "webdriver-start": "webdriver-manager start"
   },
-  "author": "Evaldo, Guilherme, Pedro, Victoria",
+  "author": "Paulo Borba",
   "devDependencies": {
     "@types/cucumber": "0.0.38",
     "@types/node": "^8.0.31",
@@ -20,6 +20,9 @@
     "protractor": "^5.1.2",
     "protractor-cucumber-framework": "^3.1.1",
     "typescript": "^2.9.2",
-    "ts-node": "^3.1.0"
+    "ts-node": "^3.1.0",
+    "request": "^2.34",
+    "request-promise": "^4.2.2",
+    "@types/request-promise": "^4.1.38"
   }
 }
