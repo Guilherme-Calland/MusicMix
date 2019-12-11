@@ -4,16 +4,12 @@ Feature: As a musician
 
 Scenario: create an event
 Given I'm at the profile page on edit mode
-When I click edit profile 
-When I type event's name, date and bands
-When I click create 
+When I try to register "Festa de ano novo" as event name, "31/12/2019" as date and "Roberto Carlos" as bands
 Then I'm still at the profile page 
 Then I see the event created on my event's list
 
 Scenario: create an event with duplicated name
 Given I'm at the profile page on edit mode
-When I click edit profile
-When I type event's name, date and bands (with an event name that already exists)
-When I click create
-Then I'm still at the profile page 
-Then I receive a message "Event already exists"
+Given event with name "Festa de ano novo" is already registered
+When I try to register "Festa de ano novo" as event name, "31/12/2019" as date and "Roberto Carlos" as bands
+Then I can see a message that tells me the event already exists
